@@ -1,0 +1,41 @@
+<div class="pageTitle">
+    <h1>Housed Horses</h1>
+</div>
+<div class="row">
+    <div class="col-8">
+        <input type="search" ng-model="queryStudents" class="form-control" aria-describedby="search" placeholder="Search Horses"
+            autofocus>
+    </div>
+    <div class="col-4">
+    
+            <!-- <div class="btn-group mr-2" role="group">
+                <button type="button" class="btn btn-secondary" ng-click="showAllUsers()">All</button>
+                <button type="button" class="btn btn-secondary" ng-click="showCohortMembers(19)">19</button>
+                <button type="button" class="btn btn-secondary" ng-click="showCohortMembers(20)">20</button>
+                <button type="button" class="btn btn-secondary" ng-click="showCohortMembers(21)">21</button>
+                <button type="button" class="btn btn-secondary" ng-click="showCohortMembers(22)">22</button>
+            </div> -->
+            
+    </div>
+</div>
+<br>
+<table class="table table-striped table-bordered table-hover adminTable">
+    <thead>
+        <tr>
+            <th><a href="" ng-click="orderByField='points'; reverseSort = !reverseSort">Case</a></th>
+            <th><a href="" ng-click="orderByField='first_name'; reverseSort = !reverseSort">Name</a></th>
+            <th><a href="" ng-click="orderByField='cohort'; reverseSort = !reverseSort">Status</a></th>
+            <th><a href="" ng-click="orderByField='exercisesCompleted'; reverseSort = !reverseSort">County</a></th>
+            <th><a href="" ng-click="orderByField='house'; reverseSort = !reverseSort">ID</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in allUsers | filter:queryStudents | orderBy:orderByField:reverseSort">
+            <th scope="row">{{item.points}}</th>
+            <td>{{item.first_name}} {{item.last_name}}</td>
+            <td>{{item.cohort}}</td>
+            <td>{{item.exercisesCompleted}}</td>
+            <td>{{item.house}}</td>
+        </tr>
+    </tbody>
+</table>

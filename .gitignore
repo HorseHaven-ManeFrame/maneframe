@@ -1,0 +1,9 @@
+.DS_Store
+sass/*
+lib/node_modules
+app/creds/*
+notes
+data/
+app/testPartial.html
+app/testStuff
+app/assets/images/profileImages/*

@@ -1,0 +1,41 @@
+<div class="pageTitle">
+    <h1>Adopters</h1>
+</div>
+
+<div class="row">
+        <div class="col">
+              <center><h3><a ng-href="#!/admin/addAdopter"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a> Add an Adopter</h3></center>  
+        </div>
+        </div>
+<br>
+
+<div class="row">
+    <div class="col-8">
+        <input type="search" ng-model="queryEvents" class="form-control " aria-describedby="search" placeholder="Search Providers" autofocus>
+    </div>
+    <div class="col-4">
+    </div>
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Date</th>
+            <th>Event Name</th>
+            <th>Location</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="item in allEvents | filter:queryEvents | orderBy: 'begDate'">
+        <tr>
+            <th scope="row"><a href=""><i ng-click="deleteSingleEvent(item.id)" class="fa fa-trash-o" aria-hidden="true"></i></a> | <a ng-href="#!/admin/addAdopter/{{item.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            </th>
+            <td>{{item.begDate | date: 'MM/dd/yyyy'}} | {{item.startTime |date:'h:mm a'}}</td>
+            <td><a ng-href="#!/admin/addAdopter/{{item.id}}">{{item.eventTitle}}</a></td>
+            <td>{{item.locationName}}: {{item.locationAddy}}</td>
+            <td><a href="{{item.eventLink}}" target="_blank">Details</a></td>
+        </tr>
+    </tbody>
+</table>
+
+</div>

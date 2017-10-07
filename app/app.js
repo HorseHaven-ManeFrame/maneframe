@@ -72,7 +72,7 @@ app.config(($routeProvider) => {
         })
         .when('/admin', {
             templateUrl: 'app/admin-view/adminDashboard.html',
-            controller: 'adminViews',
+            controller: 'allHorsesView',
             resolve: {isAuth}
         })
         .when('/admin/adopters', {

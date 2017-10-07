@@ -29,10 +29,10 @@ app.factory("authFactory", function ($q, $http, FBCreds, $window, $location) {
                         let userExists = results.data;
                         let key = Object.keys(results.data);
                         if (key.length === 0) {
-                            $window.location.href = "#!/new-user";
+                            $window.location.href = "#!/admin";
                         } else {
                             // console.log("User already in DB!", results.data);
-                            $window.location.href = "#!/";
+                            $window.location.href = "#!/admin";
                         }
                     });
             })

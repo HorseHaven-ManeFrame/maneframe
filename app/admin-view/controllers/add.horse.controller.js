@@ -20,7 +20,7 @@ app.controller("AddHorseController", function ($scope, $location, adminAddFactor
         $scope.submitNewEvent = function () {
             adminAddFactory.addSubmittedEvent($scope.event)
                 .then((data) => {
-                    $location.url("/admin/groupsevents");
+                    $location.url("/admin/horses");
                 });
         };
 

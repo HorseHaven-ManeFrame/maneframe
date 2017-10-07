@@ -1,42 +1,50 @@
 <h2>{{newEventTitle}}</h2>
 <form>
     <div class="form-group">
-        <label for="title">Event Title</label>
+        <label for="title">Name</label>
         <input type="text" ng-model="event.eventTitle" class="form-control" id="title" placeholder="Add an Event Title">
     </div>
 
     <div class="form-group">
-        <label for="title">Event Link</label>
+        <label for="title">Phone</label>
         <input type="text" ng-model="event.eventLink" class="form-control" id="title" placeholder="Add a link to the event info (e.g. Eventbrite)">
     </div>
 
     <div class="form-group">
-            <label for="title">Event Date</label>
+        <label for="title">Email</label>
+        <input type="text" ng-model="event.eventLink" class="form-control" id="title" placeholder="Add a link to the event info (e.g. Eventbrite)">
+    </div>
+
+    <div class="form-group">
+        <label for="title">Provider (WILL BE DROPDOWN)</label>
+        <input type="text" ng-model="event.eventLink" class="form-control" id="title" placeholder="Add a link to the event info (e.g. Eventbrite)">
+    </div>
+
+
+
+    <div class="form-group">
+            <label for="title">Address</label>
             <input type="date" ng-model="event.begDate" class="form-control" id="title" placeholder="Event Date">
-        </div>
+    </div>
 
-        <div class="form-group">
-                <label for="title">Event Time</label>
-                <input type="time" ng-model="event.startTime" class="form-control" id="title" placeholder="Event Time">
-            </div>
+    <div class="form-group">
+            <label for="title">City</label>
+            <input type="time" ng-model="event.startTime" class="form-control" id="title" placeholder="Event Time">
+    </div>
 
-        <div class="form-group">
-                <label for="title">Event Location Name</label>
-                <input type="text" ng-model="event.locationName" class="form-control" id="title" placeholder="Where will this event be held?">
-            </div>
+    <div class="form-group">
+            <label for="title">State</label>
+            <input type="time" ng-model="event.startTime" class="form-control" id="title" placeholder="Event Time">
+    </div>
 
-            <div class="form-group">
-                    <label for="title">Event Location Address</label>
-                    <input type="text" ng-model="event.locationAddy" class="form-control" id="title" placeholder="Add a location address">
-                </div>
-                <div class="form-group">
-                        <label for="title">Points Possible</label>
-                        <input type="text" ng-model="event.points" class="form-control" id="title" placeholder="How many points can a student get for attending?">
-                    </div>
+    <div class="form-group">
+            <label for="title">Zip Code</label>
+            <input type="text" ng-model="event.locationName" class="form-control" id="title" placeholder="Where will this event be held?">
+    </div>
 
     <div class="text-center">
             <button class="btn btn-default" ng-click="submitNewEvent()" onclick="myFunction()">{{submitButtonText}}</button>
-        </div>
+    </div>
 
         <br>
         <div class="text-center">

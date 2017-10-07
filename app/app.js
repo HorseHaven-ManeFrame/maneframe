@@ -1,7 +1,7 @@
 "use strict";
 // console.log("App, yo!");
 
-const app = angular.module("HorseHaven", ["ngRoute", "chart.js"]);
+const app = angular.module("HorseHaven", ["ngRoute"]);
 
 let isAuth = (authFactory) => new Promise((resolve, reject) => {
     authFactory.isAuthenticated()
@@ -67,7 +67,7 @@ app.config(($routeProvider) => {
         })
         .when('/admin/horses', {
             templateUrl: 'app/admin-view/allHorsesView.html',
-            controller: 'adminViews',
+            controller: 'allHorsesView',
             resolve: {isAuth}
         })
         .when('/admin', {

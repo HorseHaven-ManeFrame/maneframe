@@ -3,7 +3,7 @@
 </div>
 <div class="row">
     <div class="col-8">
-        <input type="search" ng-model="queryStudents" class="form-control" aria-describedby="search" placeholder="Search Horses"
+        <input type="search" ng-model="queryHorses" class="form-control" aria-describedby="search" placeholder="Search Horses"
             autofocus>
     </div>
     <div class="col-4">
@@ -30,12 +30,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="item in allUsers | filter:queryStudents | orderBy:orderByField:reverseSort">
-            <th scope="row">{{item.points}}</th>
-            <td>{{item.first_name}} {{item.last_name}}</td>
-            <td>{{item.cohort}}</td>
-            <td>{{item.exercisesCompleted}}</td>
-            <td>{{item.house}}</td>
+        <tr ng-repeat="horse in allHorsesData | filter:queryHorses | orderBy:orderByField:reverseSort">
+            <!-- <tr ng-repeat="horse in allHorsesData"> -->
+            <th scope="row">{{horse.caseID}}</th>
+            <td>{{horse.name}}</td>
+            <td>{{horse.status}}</td>
+            <td>{{horse.county}}</td>
+            <td>{{horse.haven_id}}</td>
         </tr>
     </tbody>
 </table>

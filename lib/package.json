@@ -20,11 +20,5 @@
     "bootstrap": "^4.0.0-beta",
     "firebase": "^4.1.3",
     "popper.js": "^1.12.5"
-  },
-  "dependencies": {
-    "angular-chart.js": "^1.1.1",
-    "angular-moment-picker": "^0.10.1",
-    "chart.js": "^2.7.0",
-    "tc-angular-chartjs": "^2.1.4"
   }
 }

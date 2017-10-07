@@ -1,19 +1,19 @@
 "use strict";
 
-app.controller("ServiceProviderController", function ($scope, gitHubFactory, authFactory, getUserInfo, pushUserStuffFactory, theDeleteFactory, groupingPointsFactory, $route, useAchieve, horseFactory) {
+app.controller("ViewAdoptersController", function ($scope, gitHubFactory, authFactory, getUserInfo, pushUserStuffFactory, theDeleteFactory, groupingPointsFactory, $route, useAchieve, horseFactory) {
 
-
-    $scope.showAllServiceProviders = () =>{
-        horseFactory.getAllServiceProviders()
+   $scope.showAllAdopters = () =>{
+        horseFactory.getAllAdopters()
         .then((data)=>{
             // 
-            $scope.allServiceProviderData = data;
+            $scope.allAdoptersData = data;
             console.log ("data", data);
 
         });
     };
 
-$scope.showAllServiceProviders();
+    $scope.showAllAdopters();
+
 //     let currentUser = authFactory.getCurrentUser();
 
 //     $scope.milestones = () => {

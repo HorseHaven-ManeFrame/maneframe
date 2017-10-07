@@ -15,7 +15,7 @@ app.controller("navCtrl", function($scope, $window, $location, $routeParams, $ro
         if (user) {
           $scope.isLoggedIn = true;
           let uid = user.uid;
-          $window.location.href = "#!/admin"
+          $window.location.href = "#!/admin";
           $scope.$apply();
         } else {
           $scope.isLoggedIn = false;

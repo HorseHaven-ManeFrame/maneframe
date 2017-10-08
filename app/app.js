@@ -85,7 +85,13 @@ app.config($routeProvider => {
       controller: 'ViewAdoptersController',
       resolve: { isAuth }
     })
+    .when('/admin/eligibility', {
+            templateUrl: 'app/admin-view/allHorsesView.html',
+            controller: 'ViewEligibleForOwnershipController',
+            resolve: {isAuth}
+            })
     .otherwise('/');
+
 });
 
 app.run(($location, FBCreds) => {

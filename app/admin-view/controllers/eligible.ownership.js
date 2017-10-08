@@ -1,16 +1,8 @@
-'use strict';
+"use strict";
 
-app.controller('allHorsesView', function($scope, horseFactory, FBCreds, authFactory) {
-  $scope.showAllHorses = () => {
-    horseFactory.getAllHorses().then(data => {
-      $scope.allHorsesData = data;
-      $scope.allHorseDataLength = data.length;
-    });
-  };
+app.controller("ViewEligibleForOwnershipController", function($scope, horseFactory, FBCreds, authFactory){
 
-/*******************************/
-
-    $scope.showAllEligibleHorses = () =>{
+    $scope.showAllHorses = () =>{
     	let ownershipSoon = [];
     	// The below is setting ownershipSoon to a new variable name in order to match with the already existing partial.
     	$scope.allHorsesData = ownershipSoon;
@@ -22,7 +14,7 @@ app.controller('allHorsesView', function($scope, horseFactory, FBCreds, authFact
             // $scope.allHorseDataLength = data.length;
 	        let today = new Date();
 	        let today_toMs = today.getTime();
-	        console.log ("TODAY MS", today_toMs);
+	        // console.log ("TODAY MS", today_toMs);
 
             
         data.forEach( function (item, index)  {
@@ -31,31 +23,17 @@ app.controller('allHorsesView', function($scope, horseFactory, FBCreds, authFact
 	      	let dateEligibleToOwn_toMs = dateEligibleToOwnObj.getTime();
 	      	let differenceOfDates = dateEligibleToOwn_toMs - today_toMs;
 	      	let daysTillEligibleToOwn = Math.floor(differenceOfDates / oneDay);
-	      	console.log ("days till eligible to own", daysTillEligibleToOwn);
+	      	// console.log ("days till eligible to own", daysTillEligibleToOwn);
 	            if (daysTillEligibleToOwn < 91 && daysTillEligibleToOwn > -1) {
 	            	ownershipSoon.push(item);
 	            	// console.log (new Date(item.eligible_for_ownership_date));
 	            }
-    			$scope.ownSoon = ownershipSoon.length;
         });
-        console.log ("ownershipSoon", ownershipSoon);
+        // console.log ("ownershipSoon", ownershipSoon);
     });
 
 };
 
-$scope.showAllEligibleHorses();
-
-/*******************************/
-
-  $scope.showAllCases = () => {
-    horseFactory.getAllCases().then(data => {
-      $scope.allCases = data.data;
-      console.log('All Cases: ', $scope.allCases);
-      $scope.totalCases = Object.keys($scope.allCases);
-    });
-  };
-
-  $scope.showAllHorses();
-  $scope.showAllCases();
-
+$scope.showAllHorses();
 });
+

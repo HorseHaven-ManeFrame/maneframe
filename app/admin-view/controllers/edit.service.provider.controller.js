@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("EditServiceProvider", function ($scope, $location, horseFactory, adminEditFactory, authFactory, $routeParams, getUserInfo) {
+app.controller("EditServiceProvider", function ($scope, $location, horseFactory, authFactory, $routeParams) {
     
         $scope.newEventTitle = "Edit Service Provider";
         $scope.submitButtonText = "Submit Edited Provider";
@@ -31,11 +31,9 @@ app.controller("EditServiceProvider", function ($scope, $location, horseFactory,
 
 
     $scope.submitNewProvider = function () {
-        console.log ("WHAT IS THIS", $scope.provider);
+        // console.log ("WHAT IS THIS", $scope.provider);
         horseFactory.submitUpdatedProvider($routeParams.itemId, $scope.provider)
         .then((data)=>{
-            //$location allows to change URL path
-            // $location.path("#!/admin/groupsevents");
         });
     };
         

@@ -4,10 +4,8 @@ app.controller('EditAdopter', function(
   $scope,
   $location,
   horseFactory,
-  adminEditFactory,
   authFactory,
-  $routeParams,
-  getUserInfo
+  $routeParams
 ) {
   $scope.newEventTitle = 'Edit Adopter';
   $scope.submitButtonText = 'Submit Edited Event';
@@ -32,17 +30,9 @@ app.controller('EditAdopter', function(
   showEditAdopter();
   
   $scope.updateAdopter = function () {
-      console.log("Update Adopter: ", $scope.adopter)
+      console.log("Update Adopter: ", $scope.adopter);
       horseFactory.updateSingleAdopter($routeParams.itemId, $scope.adopter)
           .then(data => {
-      })
-  }  
-
-  $scope.submitNewEvent = function() {
-    adminEditFactory.updateEventAdmin($scope.event);
-    // .then((data)=>{
-    //     //$location allows to change URL path
-    //     // $location.path("#!/admin/groupsevents");
-    // });
-  };
+      });
+  };  
 });

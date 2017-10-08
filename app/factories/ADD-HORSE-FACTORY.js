@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("HorseFactory", function($q, $http, FBCreds){
+app.factory("AddHorseFactory", function($q, $http, FBCreds){
     
     const addNewHorse = function (obj) {
         let newObj = JSON.stringify(obj);
@@ -41,5 +41,20 @@ app.factory("HorseFactory", function($q, $http, FBCreds){
         }); 
     }; 
 
-return{addNewHorse, updateHorse, getSingleHorse};
+    const getServiceDetails = (horseID)=>{
+        console.log("horseID", horseID);
+        return $q( (resolve, reject) => {
+            $http.get(`${FBCreds.databaseURL}/service.json?orderBy="horse_id"&equalTo="${horseID}"`)
+            .then( (data) => {
+                console.log("getServiceDetails data", data);
+                resolve(data.data);
+            }, (error) => {
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                console.log("error", errorCode, errorMessage);
+            });
+        }); 
+    };
+
+return{addNewHorse, updateHorse, getSingleHorse, getServiceDetails};
 });

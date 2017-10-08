@@ -2,6 +2,8 @@
 
 app.controller("ViewEligibleForOwnershipController", function($scope, horseFactory, FBCreds, authFactory){
 
+	$scope.title = "Eligible for Ownership"
+
     $scope.showAllHorses = () =>{
     	let ownershipSoon = [];
     	// The below is setting ownershipSoon to a new variable name in order to match with the already existing partial.

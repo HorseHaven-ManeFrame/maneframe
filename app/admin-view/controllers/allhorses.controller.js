@@ -1,6 +1,8 @@
 'use strict';
 
 app.controller('allHorsesView', function($scope, horseFactory, FBCreds, authFactory) {
+  $scope.title = "All Horses"
+  
   $scope.showAllHorses = () => {
     horseFactory.getAllHorses().then(data => {
       $scope.allHorsesData = data;

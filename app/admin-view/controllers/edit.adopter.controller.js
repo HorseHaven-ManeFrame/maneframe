@@ -29,10 +29,11 @@ app.controller('EditAdopter', function(
   };
   showEditAdopter();
   
-  $scope.updateAdopter = function () {
+  $scope.submitNewAdopter = function () {
       console.log("Update Adopter: ", $scope.adopter);
       horseFactory.updateSingleAdopter($routeParams.itemId, $scope.adopter)
           .then(data => {
       });
   };  
+
 });

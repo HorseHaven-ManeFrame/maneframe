@@ -2,7 +2,6 @@
 
 app.controller("ServiceProviderController", function ($scope, authFactory, $route, horseFactory) {
 
-
     $scope.showAllServiceProviders = () =>{
         horseFactory.getAllServiceProviders()
         .then((data)=>{
@@ -11,6 +10,14 @@ app.controller("ServiceProviderController", function ($scope, authFactory, $rout
             console.log ("data", data);
 
         });
+    };
+
+
+    $scope.deleteSingleProvider = function (id) {
+        horseFactory.deleteSingleProvider(id)
+            .then(() => {
+                $scope.showAllServiceProviders();
+            });
     };
 
 $scope.showAllServiceProviders();

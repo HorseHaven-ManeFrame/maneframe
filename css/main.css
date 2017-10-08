@@ -1,6 +1,5 @@
 body {
-  /* background: #EFEFEF;  */
-}
+  /* background: #EFEFEF;  */ }
 
 .container {
   margin-top: 30px;
@@ -26,18 +25,17 @@ h4.header {
   font-weight: bold; }
 
 /* ----TABLES FOR IND. HORSE---- */
-.table.table-inverse{
+.table.table-inverse {
   background: rgba(191, 186, 147, 0.267);
   font-size: 1em;
   line-height: .8em;
-  color: black;
-}
-.table.oneHorse{
+  color: black; }
+
+.table.oneHorse {
   font-size: .8em;
   text-align: left;
   line-height: .5em;
-  overflow: scroll;
-}
+  overflow: scroll; }
 
 /* ----DASHBOARD----- */
 .col-sm {
@@ -64,25 +62,24 @@ h4.header {
   border: none;
   /* margin: 5px; */ }
 
-.buttonText{
-  color: white;
-}
+.buttonText {
+  color: white; }
 
 .btn.btn-primary.btn-lg.btn-block.add-case:hover {
   background: #709B58; }
 
-a.btn.btn-primary.btn-lg.btn-block.add-horse{
+a.btn.btn-primary.btn-lg.btn-block.add-horse {
   background: #A56D37;
   color: white;
   border: none;
   /* margin: 5px; */ }
 
-  a.btn.btn-primary.btn-block.add-horse-three{
-    background: #A56D37;
-    margin-top: -10px;
-    color: white;
-    border: none;
-    /* margin: 5px; */ }
+a.btn.btn-primary.btn-block.add-horse-three {
+  background: #A56D37;
+  margin-top: -10px;
+  color: white;
+  border: none;
+  /* margin: 5px; */ }
 
 .btn.btn-primary.btn-lg.btn-block.add-horse:hover {
   background: #709B58; }
@@ -105,8 +102,7 @@ a:visited, a:active, a:link {
   color: #41555C !important; }
 
 a:focus, a:hover, a:active {
-  /* text-decoration: none;  */
-}
+  /* text-decoration: none;  */ }
 
 .text-black {
   color: #333 !important; }
@@ -252,5 +248,6 @@ th, td, tr {
     margin-left: 0;
     padding: 15px;
     clear: both; } }
+/*# sourceMappingURL=main.css.map */
 
 /*# sourceMappingURL=main.css.map */

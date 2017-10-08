@@ -10,5 +10,6 @@ app.controller("allHorsesView", function($scope, horseFactory, FBCreds, authFact
         });
     };
 
+
 $scope.showAllHorses();
 });

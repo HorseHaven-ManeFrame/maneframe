@@ -1,25 +1,19 @@
 'use strict';
 
-app.controller('EditAdopter', function(
-  $scope,
-  $location,
-  horseFactory,
-  authFactory,
-  $routeParams
-) {
+app.controller('EditAdopter', function($scope, $location, horseFactory, authFactory, $routeParams) {
   $scope.newEventTitle = 'Edit Adopter';
   $scope.submitButtonText = 'Submit Edited Event';
   let user = authFactory.getCurrentUser();
 
   $scope.adopter = {
-      address: '',
-      zipcode: '',
-      email: '',
-      phone: '',
-      state: '',
-      name: '',
-      city: '',
-      uid: '',
+    address: '',
+    zipcode: '',
+    email: '',
+    phone: '',
+    state: '',
+    name: '',
+    city: '',
+    uid: ''
   };
 
   const showEditAdopter = function() {
@@ -28,12 +22,9 @@ app.controller('EditAdopter', function(
     });
   };
   showEditAdopter();
-  
-  $scope.submitNewAdopter = function () {
-      console.log("Update Adopter: ", $scope.adopter);
-      horseFactory.updateSingleAdopter($routeParams.itemId, $scope.adopter)
-          .then(data => {
-      });
-  };  
 
+  $scope.submitNewAdopter = function() {
+    console.log('Update Adopter: ', $scope.adopter);
+    horseFactory.updateSingleAdopter($routeParams.itemId, $scope.adopter).then(data => {});
+  };
 });

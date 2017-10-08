@@ -81,7 +81,6 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     return $q((resolve, reject) => {
       $http.post(`${FBCreds.databaseURL}/adopter.json`, newAdopterObject).then(
         data => {
-          console.log('data', data);
           resolve(data);
         },
         error => {
@@ -95,11 +94,9 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
 
   const deleteSingleAdopter = function(adopterFBID) {
     return $q((resolve, reject) => {
-      console.log('adopterFBID FROM FACTORY', adopterFBID);
       $http
         .delete(`${FBCreds.databaseURL}/adopter/${adopterFBID}.json`)
         .then(data => {
-          console.log('data', data);
           resolve(data);
         })
         .catch(error => {
@@ -109,12 +106,10 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
   };
 
   const deleteSingleProvider = function(providerFBID) {
-    console.log('providerFBID!', providerFBID);
     return $q((resolve, reject) => {
       $http
         .delete(`${FBCreds.databaseURL}/service_provider/${providerFBID}.json`)
         .then(data => {
-          console.log('data', data);
           resolve(data);
         })
         .catch(error => {
@@ -127,7 +122,6 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     return $q((resolve, reject) => {
       $http.get(`https://horse-haven-tn.firebaseio.com/service_provider/${providerFBID}.json`).then(
         data => {
-          console.log('data', data);
           resolve(data);
         },
         error => {
@@ -140,13 +134,11 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
   };
 
   const submitUpdatedProvider = function(providerFBID, editedProviderObject) {
-    console.log('inside here', providerFBID);
     return $q((resolve, reject) => {
       let stringyObject = JSON.stringify(editedProviderObject);
       $http
         .patch(`${FBCreds.databaseURL}/service_provider/${providerFBID}.json`, stringyObject)
         .then(data => {
-          console.log('data', data);
           resolve(data);
         })
         .catch(error => {
@@ -159,7 +151,6 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     return $q((resolve, reject) => {
       $http.post(`${FBCreds.databaseURL}/service_provider.json`, newProviderObject).then(
         data => {
-          console.log('data', data);
           resolve(data);
         },
         error => {
@@ -179,7 +170,42 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
-  // getAllAdopters();
+  const getSingleCase = id => {
+    return $q((resolve, reject) => {
+      $http.get(`${FBCreds.databaseURL}/cases/${id}.json`).then(data => {
+        resolve(data);
+      });
+    });
+  };
+
+  const submitUpdatedCase = function(caseFBID, editedCaseObject) {
+    return $q((resolve, reject) => {
+      let stringifyObject = JSON.stringify(editedCaseObject);
+      $http
+        .patch(`${FBCreds.databaseURL}/cases/${caseFBID}.json`, stringifyObject)
+        .then(data => {
+          resolve(data);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  };
+
+  const submitNewCase = function(newCase) {
+    return $q((resolve, reject) => {
+      $http.post(`${FBCreds.databaseURL}/cases.json`, newCase).then(
+        data => {
+          resolve(data);
+        },
+        error => {
+          let errorCode = error.code;
+          let errorMessage = error.message;
+          console.log('error', errorCode, errorMessage);
+        }
+      );
+    });
+  };
 
   return {
     getAllServiceProviders,
@@ -189,10 +215,13 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     deleteSingleAdopter,
     submitNewProvider,
     getSingleProvider,
+    submitUpdatedCase,
     submitNewAdopter,
     getSingleAdopter,
     getAllAdopters,
+    getSingleCase,
+    submitNewCase,
     getAllHorses,
-    getAllCases,
+    getAllCases
   };
 });

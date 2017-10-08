@@ -80,6 +80,16 @@ app.config($routeProvider => {
       controller: 'allHorsesView',
       resolve: { isAuth }
     })
+    .when('/admin/addCase/:itemId', {
+      templateUrl: 'app/admin-view/forms/addCase.html',
+      controller: 'editCaseController',
+      resolve: { isAuth }
+    })
+    .when('/admin/addCase', {
+      templateUrl: 'app/admin-view/forms/addCase.html',
+      controller: 'addCaseController',
+      resolve: { isAuth }
+    })
     .when('/admin/adopters', {
       templateUrl: 'app/admin-view/adopterView.html',
       controller: 'ViewAdoptersController',

@@ -60,10 +60,43 @@ app.factory("horseFactory", function ($q, $http, FBCreds) {
         });
     };
 
+    
+    const getSingleProvider = function(providerFBID) {
+
+        return $q( (resolve, reject) => {
+            $http.get(`https://horse-haven-tn.firebaseio.com/service_provider/${providerFBID}.json`)  
+            .then( (data) => {
+                console.log("data", data);
+                resolve(data);
+            }, (error) => {
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                console.log("error", errorCode, errorMessage);
+            });
+        }); 
+    }; 
+
+
+    const submitUpdatedProvider = function(providerFBID, editedProviderObject) {
+        console.log ("inside here", providerFBID);
+        return $q( (resolve, reject) => {
+            let stringyObject = JSON.stringify(editedProviderObject);
+            $http.patch(`${FBCreds.databaseURL}/service_provider/${providerFBID}.json`, stringyObject) 
+            .then( (data) => {
+                console.log("data", data);
+                resolve(data);
+            })
+            .catch((error) => {
+                reject(error);
+            });
+        }); 
+    };
+
+
 
     getAllAdopters();
 
     return {
-        getAllHorses, getAllServiceProviders, getAllAdopters
+        getAllHorses, getAllServiceProviders, getAllAdopters, getSingleProvider, submitUpdatedProvider
     };
 });

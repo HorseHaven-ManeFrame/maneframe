@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-8">
-            <h3>{{addHorse.name}}'s Details (County: {{addHorse.county}})  <a ng-href="#!/admin/addHorse/edit/{{addHorse.horse_id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a></h3>
+            <h3>{{addHorse.name}}'s Details (County: {{addHorse.county}})  <a ng-href="#!/admin/addHorse/edit/{{addHorse.horse_id}}"><i class="fa fa-pencil no-print" aria-hidden="true"></i></a></h3>
             <p>Breed: {{addHorse.breed}}</p>
         <table class="table oneHorse">
             <tbody>
@@ -31,33 +31,8 @@
             </tbody>
         </table>
         <hr>
-        <div class="row">
-                <div class="col-sm">
-                    <h4>Services</h4>
-                </div>
-                <div class="col-sm">
-                        <a ng-href="#!/admin/addService/{{addHorse.horse_id}}" class="btn btn-primary add-horse"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><span class="buttonText"> Add A Service</span></a>
-                    </div>
-    
-            </div>
-        <table class="table table-striped">
-                <tbody>
-                        <thead>
-                                <tr>
-                                  <th>Date of Service</th>
-                                  <th>Service Type</th>
-                                  <th>Total Cost</th>
-                                </tr>
-                              </thead>
-                    <tr ng-repeat="service in horseServices | orderBy:'date'">
-                        <th scope="row">{{service.date}}</th>
-                        <td>{{service.type}}</td>
-                        <td>{{service.amount}}</td>
-                    </tr>
-                </tbody>
-              </table>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 no-print">
             <div class="row">
                 <div class="col-sm">
                         <h4>Weight History</h4> 
@@ -85,4 +60,38 @@
                 </tbody>
             </table>
         </div>
+</div>
+<hr>
+        <div class="row">
+                <div class="col-sm-2">
+                    <h4>Services</h4>
+                </div>
+                    <div class="col-sm-8 no-print">
+                            <input type="search" ng-model="queryServices" class="form-control" aria-describedby="search" placeholder="Search Services"
+                            autofocus>
+                    </div>
+                    <div class="col-sm-2 no-print">
+                            <a ng-href="#!/admin/addService/{{addHorse.horse_id}}" class="btn btn-primary add-horse"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><span class="buttonText"> Add A Service</span></a>
+                        </div>
+    
+            </div>
+            <br>
+        <table class="table table-striped">
+                <tbody>
+                        <thead>
+                                <tr>
+                                  <th>Date of Service</th>
+                                  <th>Service Type</th>
+                                  <th>Description</th>
+                                  <th>Total Cost</th>
+                                </tr>
+                              </thead>
+                    <tr ng-repeat="service in horseServices | orderBy:'date' | filter:queryServices">
+                        <th scope="row">{{service.date | date: 'MM/dd/yyyy'}}</th>
+                        <td>{{service.type}}</td>
+                        <td>{{service.description}}</td>
+                        <td>{{service.amount}}</td>
+                    </tr>
+                </tbody>
+              </table>
 </div>

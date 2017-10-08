@@ -21,9 +21,9 @@ app.config($routeProvider => {
       controller: 'userCtrl'
     })
     .when('/admin/addService/:itemId', {
-      templateUrl: 'app/admin-view/forms/addHorseServiceForm.html',
-      controller: 'EditHorse',
-      resolve: { isAuth }
+        templateUrl: 'app/admin-view/forms/addHorseServiceForm.html',
+        controller: 'AddHorseServicesController',
+        resolve: {isAuth}
     })
     .when('/admin/addHorse', {
       templateUrl: 'app/admin-view/forms/addHorseForm.html',

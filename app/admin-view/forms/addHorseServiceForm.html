@@ -1,0 +1,44 @@
+<h2>{{newTitle}}</h2>
+<form>
+        <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="title">Date of Service</label>
+                        <input type="date" ng-model="addService.date" class="form-control" id="title" placeholder="Event Date">
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                            <label for="title">Cost of Service</label>
+                            <input type="text" ng-model="addService.amount" class="form-control" id="title" placeholder="Total Cost">
+                        </div>
+                </div>
+                <div class="col-sm">
+                        <div class="form-group">
+                                <label for="title">Type of Service</label><br>
+                                <select class="custom-select" ng-model="addService.type">
+                                    <option value="">Select One</option>
+                                    <option value="Vet">Vet</option>
+                                    <option value="Boarding">Boarding Fees</option>
+                                    <option value="Farrier">Farrier</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                    
+                </div>
+            </div>
+    <div class="row">
+        <div class="col-9">
+            <div class="form-group">
+                <input type="text" ng-model="addService.description" class="form-control" id="name" placeholder="Service Description">
+            </div>
+
+        </div>
+        <div class="col-3">
+           
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-default" ng-click="submitNewService()">{{submitButtonText}}</button>
+    </div>
+</form>

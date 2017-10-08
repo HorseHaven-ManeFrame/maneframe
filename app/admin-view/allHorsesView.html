@@ -6,16 +6,7 @@
         <input type="search" ng-model="queryHorses" class="form-control" aria-describedby="search" placeholder="Search Horses"
             autofocus>
     </div>
-    <div class="col-4">
-    
-            <!-- <div class="btn-group mr-2" role="group">
-                <button type="button" class="btn btn-secondary" ng-click="showAllUsers()">All</button>
-                <button type="button" class="btn btn-secondary" ng-click="showCohortMembers(19)">19</button>
-                <button type="button" class="btn btn-secondary" ng-click="showCohortMembers(20)">20</button>
-                <button type="button" class="btn btn-secondary" ng-click="showCohortMembers(21)">21</button>
-                <button type="button" class="btn btn-secondary" ng-click="showCohortMembers(22)">22</button>
-            </div> -->
-            
+    <div class="col-4">            
     </div>
 </div>
 <br>
@@ -33,7 +24,7 @@
         <tr ng-repeat="horse in allHorsesData | filter:queryHorses | orderBy:orderByField:reverseSort">
             <!-- <tr ng-repeat="horse in allHorsesData"> -->
             <th scope="row">{{horse.caseID}}</th>
-            <td>{{horse.name}}</td>
+            <td><a ng-href="#!/admin/addHorse/{{horse.id}}">{{horse.name}}</a></td>
             <td>{{horse.status}}</td>
             <td>{{horse.county}}</td>
             <td>{{horse.haven_id}}</td>

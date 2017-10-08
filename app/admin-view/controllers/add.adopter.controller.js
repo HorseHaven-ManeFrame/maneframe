@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("AddHorseController", function ($scope, $location, adminAddFactory, authFactory) {
+app.controller("AddAdopterController", function ($scope, $location, adminAddFactory, authFactory) {
     
         $scope.newEventTitle = "Add an Event";
         $scope.submitButtonText = "Add New Event";

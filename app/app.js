@@ -32,7 +32,7 @@ app.config(($routeProvider) => {
         })
         .when('/admin/addHorse', {
             templateUrl: 'app/admin-view/forms/addHorseForm.html',
-            controller: 'AddHorseController',
+            controller: 'HorseController',
             resolve: {isAuth}
         })
         .when('/admin/addHorse/:itemId', {

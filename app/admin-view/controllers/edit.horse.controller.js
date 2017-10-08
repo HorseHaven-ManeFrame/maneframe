@@ -1,40 +1,43 @@
 "use strict";
 
-app.controller("EditHorse", function ($scope, $location, adminEditFactory, authFactory, $routeParams, getUserInfo) {
+app.controller("EditHorse", function ($scope, $location, authFactory, $routeParams, HorseFactory) {
     
-        $scope.newEventTitle = "Edit Event";
-        $scope.submitButtonText = "Submit Edited Event";
-        let user = authFactory.getCurrentUser();
+        $scope.newTitle = "Horse Details";
+        $scope.submitButtonText = "Update Horse Details";
     
-        $scope.event = {
-            eventTitle: "",
-            eventLink: "",
-            begDate: "",
-            locationName: "",
-            startTime: "",
-            locationAddy: "",
-            points: "",
-            uid: user
+        $scope.addHorse = {
+            adopter_id: "",
+            adopter_name: "",
+            age: "",
+            arrive_date: "",
+            breed: "",
+            color: "",
+            county: "",
+            departure_date: "",
+            eligible_for_ownership_date: "",
+            gender: "",
+            haven_id: "",
+            name: "",
+            status: ""
         };
 
-        const showEditEvent = function () {
-            getUserInfo.getBIGSubmittedEvent($routeParams.itemId)
+        const showEditHorse = function () {
+            HorseFactory.getSingleHorse($routeParams.itemId)
                 .then((data) => {
-                    // console.log("data", data);
-                    $scope.event = data;
-                    $scope.event.begDate = new Date(data.begDate);
-                    $scope.event.startTime = new Date(data.startTime);
-                    $scope.event.id = $routeParams.itemId;
+                    console.log("data", data);
+                    $scope.addHorse = data.data;
+                    // $scope.addHorse.arrive_date = new Date(data.arrive_date);
+                    // $scope.addHorse.departure_date = new Date(data.departure_date);
+                    // $scope.addHorse.eligible_for_ownership_date = new Date(data.eligible_for_ownership_date);
                 });
         };
-        showEditEvent();
+        showEditHorse();
 
-        $scope.submitNewEvent = function () {
-            adminEditFactory.updateEventAdmin($scope.event);
-            // .then((data)=>{
-            //     //$location allows to change URL path
-            //     // $location.path("#!/admin/groupsevents");
-            // });
+        $scope.submitNewHorse = function () {
+            HorseFactory.updateHorse($scope.addHorse, $routeParams.itemId)
+                .then((response) => {
+                    $location.url("/admin/horses");
+                });
         };
         
 

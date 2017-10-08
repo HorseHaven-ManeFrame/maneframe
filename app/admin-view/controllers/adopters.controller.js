@@ -6,6 +6,14 @@ app.controller('ViewAdoptersController', function($scope, $route, horseFactory) 
       $scope.allAdoptersData = data;
     });
   };
-
+  
+  $scope.deleteSingleAdopter = function (id) {
+     horseFactory.deleteSingleAdopter(id)
+       .then(() => {
+                $scope.showAllAdopters();
+            });
+    };
+  
+  
   $scope.showAllAdopters();
 });

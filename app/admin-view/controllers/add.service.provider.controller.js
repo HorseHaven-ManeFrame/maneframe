@@ -1,26 +1,26 @@
 "use strict";
 
-app.controller("AddServiceProvider", function ($scope, $location, adminAddFactory, authFactory) {
+app.controller("AddServiceProvider", function ($scope, $location, horseFactory, authFactory) {
     
-        $scope.newEventTitle = "Add an Event";
-        $scope.submitButtonText = "Add New Event";
-        let user = authFactory.getCurrentUser();
+        $scope.newEventTitle = "Add Service Provider";
+        $scope.submitButtonText = "Submit";
     
-        $scope.event = {
-            eventTitle: "",
-            eventLink: "",
-            begDate: "",
-            locationName: "",
-            startTime: "",
-            locationAddy: "",
-            points: "",
-            uid: user
+        $scope.provider = {
+            address: "",
+            city: "",
+            email: "",
+            name: "",
+            phone: "",
+            provider_type: "",
+            service_provider_id: "",
+            state: "",
+            zipcode: ""
         };
     
-        $scope.submitNewEvent = function () {
-            adminAddFactory.addSubmittedEvent($scope.event)
+        $scope.submitNewProvider = function () {
+            horseFactory.submitNewProvider($scope.provider)
                 .then((data) => {
-                    $location.url("/admin/groupsevents");
+                    $location.url("/admin/service-providers");
                 });
         };
 

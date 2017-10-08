@@ -31,18 +31,10 @@ app.controller('EditAdopter', function(
   };
   showEditAdopter();
   
-  $scope.updateAdopter = function () {
-      console.log("Update Adopter: ", $scope.adopter)
+  $scope.submitNewAdopter = function () {
+      console.log("Update Adopter: ", $scope.adopter);
       horseFactory.updateSingleAdopter($routeParams.itemId, $scope.adopter)
           .then(data => {
-      })
-  }  
-
-  $scope.submitNewEvent = function() {
-    adminEditFactory.updateEventAdmin($scope.event);
-    // .then((data)=>{
-    //     //$location allows to change URL path
-    //     // $location.path("#!/admin/groupsevents");
-    // });
+      });
   };
 });

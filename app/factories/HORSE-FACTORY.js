@@ -1,6 +1,7 @@
 'use strict';
 
 app.factory('horseFactory', function($q, $http, FBCreds) {
+  
   const getAllHorses = () => {
     let horsesArray = [];
 
@@ -77,6 +78,49 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+  const submitNewAdopter = function(newAdopterObject) {
+
+        return $q( (resolve, reject) => {
+            $http.post(`${FBCreds.databaseURL}/adopter.json`, newAdopterObject)  
+            .then( (data) => {
+                console.log("data", data);
+                resolve(data);
+            }, (error) => {
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                console.log("error", errorCode, errorMessage);
+            });
+        });        
+    };
+
+  const deleteSingleAdopter = function(adopterFBID) {
+        console.log ("adop", adopterFBID);
+        return $q( (resolve, reject) => {
+            $http.delete(`${FBCreds.databaseURL}/adopter/${adopterFBID}.json`)  
+            .then( (data) => {
+                console.log("data", data);
+                resolve(data);
+            })
+            .catch((error) => {
+                reject(error);
+            });
+        }); 
+  };
+
+  const deleteSingleProvider = function(providerFBID) {
+        console.log ("providerFBID!", providerFBID);
+        return $q( (resolve, reject) => {
+            $http.delete(`${FBCreds.databaseURL}/service_provider/${providerFBID}.json`)  
+            .then( (data) => {
+                console.log("data", data);
+                resolve(data);
+            })
+            .catch((error) => {
+                reject(error);
+            });
+        }); 
+  };
+
   const getSingleProvider = function(providerFBID) {
     return $q((resolve, reject) => {
       $http.get(`https://horse-haven-tn.firebaseio.com/service_provider/${providerFBID}.json`).then(
@@ -109,13 +153,42 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+
+
+  const submitNewProvider = function(newProviderObject) {
+
+        return $q( (resolve, reject) => {
+            $http.post(`${FBCreds.databaseURL}/service_provider.json`, newProviderObject)  
+            .then( (data) => {
+                console.log("data", data);
+                resolve(data);
+            }, (error) => {
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                console.log("error", errorCode, errorMessage);
+            });
+        });        
+    };
+
+  
+
+
+
+
   getAllAdopters();
 
   return {
+    getAllHorses,
     getAllServiceProviders,
+    submitNewProvider,
+    getSingleProvider,
+    deleteSingleProvider,
+    submitUpdatedProvider,
     updateSingleAdopter,
+    submitNewAdopter,
     getSingleAdopter,
     getAllAdopters,
-    getAllHorses
+    deleteSingleAdopter
   };
+
 });

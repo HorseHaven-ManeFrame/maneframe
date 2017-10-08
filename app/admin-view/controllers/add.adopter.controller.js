@@ -1,26 +1,25 @@
 "use strict";
 
-app.controller("AddAdopterController", function ($scope, $location, adminAddFactory, authFactory) {
+app.controller("AddAdopterController", function ($scope, $location, adminAddFactory, horseFactory) {
     
-        $scope.newEventTitle = "Add an Event";
-        $scope.submitButtonText = "Add New Event";
-        let user = authFactory.getCurrentUser();
-    
-        $scope.event = {
-            eventTitle: "",
-            eventLink: "",
-            begDate: "",
-            locationName: "",
-            startTime: "",
-            locationAddy: "",
-            points: "",
-            uid: user
+        $scope.newEventTitle = "Add an Adopter";
+        $scope.submitButtonText = "Submit";
+
+        $scope.adopter = {
+              address: '',
+              zipcode: '',
+              email: '',
+              phone: '',
+              state: '',
+              name: '',
+              city: '',
+              uid: '',
         };
     
-        $scope.submitNewEvent = function () {
-            adminAddFactory.addSubmittedEvent($scope.event)
+        $scope.submitNewAdopter = function () {
+            horseFactory.submitNewAdopter($scope.adopter)
                 .then((data) => {
-                    $location.url("/admin/groupsevents");
+                    $location.url("/admin/adopters");
                 });
         };
 

@@ -4,7 +4,7 @@
 
 <div class="row">
         <div class="col">
-              <center><h3><a ng-href="#!/admin/addServiceProvider"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a> Add A Provider</h3></center>  
+              <center><h3><a ng-href="#!/admin/addServiceProvider"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a>Add A Provider</h3></center>  
         </div>
         </div>
 <br>
@@ -27,7 +27,7 @@
     </thead>
     <tbody ng-repeat="provider in allServiceProviderData | filter:queryEvents | orderBy: 'begDate'">
         <tr>
-            <th scope="row"><a href=""><i ng-click="deleteSingleEvent(provider.id)" class="fa fa-trash-o" aria-hidden="true"></i></a> | <a ng-href="#!/admin/addServiceProvider/{{provider.service_provider_id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            <th scope="row"><a href=""><i ng-click="deleteSingleProvider(provider.id)" class="fa fa-trash-o" aria-hidden="true"></i></a> | <a ng-href="#!/admin/addServiceProvider/{{provider.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
             </th>
             <td>{{provider.name}}</td>
             <td>{{provider.phone}}</td>

@@ -57,7 +57,7 @@ app.config(($routeProvider) => {
         })
         .when('/admin/addServiceProvider/:itemId', {
             templateUrl: 'app/admin-view/forms/addServiceProvider.html',
-            controller: 'EditAdopter',
+            controller: 'EditServiceProvider',
             resolve: {isAuth}
         })
         .when('/admin/service-providers', {

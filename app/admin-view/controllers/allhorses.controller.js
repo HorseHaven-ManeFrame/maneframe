@@ -15,6 +15,38 @@ app.controller("allHorsesView", function($scope, horseFactory, adminPullFactory,
     };
 
 
+/***************** the below is the logic to figure out when horse will be available for ownership **************************************************/
+  //   let availableForOwnership = new Date();
+  //   let adoptDate = new Date();
+  //   availableForOwnership.setDate(availableForOwnership.getDate() + 365);
+
+  //   function ownershipEligibleChecker(availableForOwnership, adoptDate) {
+	 //    // Get 1 day in milliseconds
+	 //    console.log ("availableForOwnership", availableForOwnership);
+	 //    console.log ("adoptDate", adoptDate);
+	 //  	let todayDate_ms = availableForOwnership.getTime();
+	 //  	let adoptDate_ms = adoptDate.getTime();
+  //   	let difference_ms = todayDate_ms - adoptDate_ms;
+
+		// console.log ("days until eligible", daysUntilOwnershipEligible(adoptDate_ms, difference_ms));
+  //   }
+
+  //   function daysUntilOwnershipEligible(adoptDate_ms, difference_ms) {
+	 //  	let one_day=1000*60*60*24;
+  //   	return Math.round((difference_ms - adoptDate_ms)/one_day);
+  //   }
+
+  // 	ownershipEligibleChecker(availableForOwnership, adoptDate);
+
+/*******************************************************************/
+
+
+
+
+
+
+
+
 //     let currentUser = authFactory.getCurrentUser();
 
 //     $scope.isAdmin = ()=>{

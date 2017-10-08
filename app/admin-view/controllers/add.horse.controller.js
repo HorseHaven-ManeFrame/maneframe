@@ -1,30 +1,37 @@
 "use strict";
 
-app.controller("AddHorseController", function ($scope, $location, adminAddFactory, authFactory) {
-    
-        $scope.newEventTitle = "Add an Event";
-        $scope.submitButtonText = "Add New Event";
-        let user = authFactory.getCurrentUser();
-    
-        $scope.event = {
-            eventTitle: "",
-            eventLink: "",
-            begDate: "",
-            locationName: "",
-            startTime: "",
-            locationAddy: "",
-            points: "",
-            uid: user
-        };
-    
-        $scope.submitNewEvent = function () {
-            adminAddFactory.addSubmittedEvent($scope.event)
-                .then((data) => {
-                    $location.url("/admin/horses");
-                });
-        };
+app.controller("HorseController", function ($scope, $location, HorseFactory, authFactory) {
+
+    $scope.newTitle = "Add a Horse";
+    $scope.submitButtonText = "Submit New Horse";
+
+    $scope.addHorse = {
+        adopter_id: "",
+        adopter_name: "",
+        age: "",
+        arrive_date: "",
+        breed: "",
+        color: "",
+        county: "",
+        departure_date: "",
+        eligible_for_ownership_date: "",
+        gender: "",
+        haven_id: "",
+        horse_id: "",
+        name: "",
+        status: ""
+    };
+
+    $scope.submitNewHorse = function () {
+        HorseFactory.addNewHorse($scope.addHorse)
+            .then((response) => {
+                console.log("RESPONSE", response.data.name);
+                let pushUgly = {
+                    horse_id: response.data.name
+                };
+                HorseFactory.updateHorse(pushUgly, response.data.name);
+                $location.url("/admin/horses");
+            });
+    };
 
 });
-
-
-    

@@ -1,4 +1,5 @@
 <div>
+  
   <h2>Welcome, Admin!</h2>
   <div class="row">
     <div class="col-sm">
@@ -22,10 +23,10 @@
       </button>
     </div>
     <div class="col-sm">
-      <button type="button" class="btn btn-primary btn-lg btn-block dbButton">
-        <p class="dbNumber">6</p>
-        <small>CASES</small>
-      </button>
+      <a ng-href="#!/cases" class="btn btn-primary btn-lg btn-block dbButton">
+        <p class="dbNumber">{{totalCases.length}}</p>
+        <small class="buttonText">CASES</small>
+      </a>
     </div>
     <div class="col-sm">
       <button type="button" class="btn btn-primary btn-lg btn-block dbButton">

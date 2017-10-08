@@ -14,11 +14,11 @@
     <!-- ///////////END STYLESHEETS/////////// -->
 </head>
 
-<body ng-controller="navCtrl"> 
+<body ng-controller="navCtrl">
     <!-- ///////////CONTAINER START/////////// -->
-        <div class="container" >
-            <div ng-view></div>
-        </div>
+    <div class="container">
+        <div ng-view></div>
+    </div>
     <!-- ///////////CONTAINER END/////////// -->
 
     <!-- ///////////FOOTER START/////////// -->
@@ -35,9 +35,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
 
+
     <!-- ANGULAR -->
     <script type="text/javascript" src="./lib/node_modules/angular/angular.min.js"></script>
     <script type="text/javascript" src="./lib/node_modules/angular-route/angular-route.min.js"></script>
+
+    <!-- ANGULAR FILTER -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.17/angular-filter.js"></script>
 
     <!-- FIREBASE -->
     <script type="text/javascript" src="./lib/node_modules/firebase/firebase.js"></script>
@@ -51,7 +55,7 @@
     <script src="app/factories/HORSE-FACTORY.js"></script>
     <script src="app/factories/ADD-HORSE-FACTORY.js"></script>
     <script src="app/factories/authFactory.js"></script>
-    
+
     <!-- CONTROLLERS -->
     <script src="app/login-view/authController.js"></script>
     <script src="app/navigation/navController.js"></script>
@@ -64,7 +68,6 @@
     <script src="app/admin-view/controllers/edit.adopter.controller.js"></script>
     <script src="app/admin-view/controllers/edit.service.provider.controller.js"></script>
     <script src="app/admin-view/controllers/adopters.controller.js"></script>
-    
     <!-- ///////////END SCRIPTS/////////// -->
 </body>
 

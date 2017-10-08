@@ -1,6 +1,7 @@
 'use strict';
 
 app.factory('horseFactory', function($q, $http, FBCreds) {
+  
   const getAllHorses = () => {
     let horsesArray = [];
 

@@ -2,18 +2,18 @@
   <h2>Welcome, Admin!</h2>
   <div class="row">
     <div class="col-sm">
-        <button type="button" class="btn btn-primary btn-lg btn-block add-case"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i> Add A Case</button>
+        <a ng-href="#!/admin/addHorse" class="btn btn-primary btn-lg btn-block add-case"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i> <span class="buttonText"> Add A Case</span></a>
     </div>
     <div class="col-sm">
-        <a ng-href="#!/admin/addHorse" type="button" class="btn btn-primary btn-lg btn-block add-horse"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>Add A Horse</a>
+        <a ng-href="#!/admin/addHorse" class="btn btn-primary btn-lg btn-block add-horse"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><span class="buttonText"> Add A Horse</span></a>
       </div>
   </div>
   <div class="row">
     <div class="col-sm">
-      <button type="button" class="btn btn-primary btn-lg btn-block dbButton">
-        <p class="dbNumber">34</p>
-        <small>HORSES HOUSED</small>
-      </button>
+      <a ng-href="#!/admin/horses" class="btn btn-primary btn-lg btn-block dbButton">
+        <p class="dbNumber">{{allHorseDataLength}}</p>
+        <small class="buttonText">HORSES HOUSED</small>
+      </a>
     </div>
     <div class="col-sm">
       <button type="button" class="btn btn-primary btn-lg btn-block dbButton">
@@ -24,7 +24,7 @@
     <div class="col-sm">
       <button type="button" class="btn btn-primary btn-lg btn-block dbButton">
         <p class="dbNumber">6</p>
-        <small>HORSES NEED VETTING</small>
+        <small>CASES</small>
       </button>
     </div>
     <div class="col-sm">
@@ -32,105 +32,6 @@
         <p class="dbNumber">14</p>
         <small>SERVICE PROVIDERS</small>
       </button>
-    </div>
-
-    <div>
-      COUNTIES
-      Anderson
-      Bedford
-      Benton
-      Bledsoe
-      Blount
-      Bradley
-      Campbell
-      Cannon
-      Carroll
-      Carter
-      Cheatham
-      Chester
-      Claiborne
-      Clay
-      Cocke
-      Coffee
-      Crockett
-      Cumberland
-      Davidson
-      Decatur
-      DeKalb
-      Dickson
-      Dyer
-      Fayette
-      Fentress
-      Franklin
-      Gibson
-      Giles
-      Grainger
-      Greene
-      Grundy
-      Hamblen
-      Hamilton
-      Hancock
-      Hardeman
-      Hardin
-      Hawkins
-      Haywood
-      Henderson
-      Henry
-      Hickman
-      Houston
-      Humphreys
-      Jackson
-      Jefferson
-      Johnson
-      Knox
-      Lake
-      Lauderdale
-      Lawrence
-      Lewis
-      Lincoln
-      Loudon
-      Macon
-      Madison
-      Marion
-      Marshall
-      Maury
-      McMinn
-      McNairy
-      Meigs
-      Monroe
-      Montgomery
-      Moore
-      Morgan
-      Obion
-      Overton
-      Perry
-      Pickett
-      Polk
-      Putnam
-      Rhea
-      Roane
-      Robertson
-      Rutherford
-      Scott
-      Sequatchie
-      Sevier
-      Shelby
-      Smith
-      Stewart
-      Sullivan
-      Sumner
-      Tipton
-      Trousdale
-      Unicoi
-      Union
-      Van Buren
-      Warren
-      Washington
-      Wayne
-      Weakley
-      White
-      Williamson
-      Wilson
     </div>
   </div>
   

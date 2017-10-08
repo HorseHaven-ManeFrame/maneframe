@@ -20,14 +20,9 @@ app.config(($routeProvider) => {
             templateUrl: 'app/login-view/loginForm.html',
             controller: 'userCtrl'
         })
-        .when('/admin/event/:itemId', {
-            templateUrl: 'app/admin-view/adminEventScoring.html',
-            controller: 'userEventSubmission',
-            resolve: {isAuth}
-        })
-        .when('/admin/groups/:itemId', {
-            templateUrl: 'app/admin-view/adminGroupScoring.html',
-            controller: 'userGroupSubmission',
+        .when('/admin/addService/:itemId', {
+            templateUrl: 'app/admin-view/forms/addHorseServiceForm.html',
+            controller: 'EditHorse',
             resolve: {isAuth}
         })
         .when('/admin/addHorse', {
@@ -36,6 +31,11 @@ app.config(($routeProvider) => {
             resolve: {isAuth}
         })
         .when('/admin/addHorse/:itemId', {
+            templateUrl: 'app/admin-view/oneHorseView.html',
+            controller: 'EditHorse',
+            resolve: {isAuth}
+        })
+        .when('/admin/addHorse/edit/:itemId', {
             templateUrl: 'app/admin-view/forms/addHorseForm.html',
             controller: 'EditHorse',
             resolve: {isAuth}

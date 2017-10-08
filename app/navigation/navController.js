@@ -1,8 +1,6 @@
 'use strict';
 
-// console.log("navcontroller, yo!");
-
-app.controller("navCtrl", function($scope, $window, $location, $routeParams, $route, authFactory, getUserInfo){
+app.controller("navCtrl", function($scope, $window, $location, $routeParams, $route, authFactory){
 
     $scope.isLoggedIn = false;
     

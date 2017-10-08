@@ -1,87 +1,14 @@
 "use strict";
 
-app.controller("allHorsesView", function($scope, horseFactory, adminPullFactory, FBCreds, groupingPointsFactory, authFactory, getUserInfo){
-
-
+app.controller("allHorsesView", function($scope, horseFactory, FBCreds, authFactory){
 
     $scope.showAllHorses = () =>{
         horseFactory.getAllHorses()
         .then((data)=>{
-            // 
             $scope.allHorsesData = data;
-            console.log ("data", data);
-
+            $scope.allHorseDataLength = data.length;
         });
     };
 
-
-//     let currentUser = authFactory.getCurrentUser();
-
-//     $scope.isAdmin = ()=>{
-//         getUserInfo.getUserDetails(currentUser)
-//             .then((getUser) => {
-//                 let key = Object.keys(getUser);
-//                $scope.isTeacher = getUser[key].isTeacher;
-//             //    console.log("$scope.isTeacher", $scope.isTeacher);
-//             });
-
-    
-//     };
-//     $scope.isAdmin();
-
-//     $scope.findCurrentUser = ()=>{
-//         let userAdmin = [];
-//         getUserInfo.getUserDetails(currentUser)
-//         .then((results)=>{
-//             let key = Object.keys(results);
-//             $scope.userName = results[key].first_name;
-//             key.forEach((item)=>{
-//                 userAdmin.push(results[item]);
-//             });
-//             // console.log("results.data", userAdmin);
-//         });
-//     };
-
-//     $scope.findCurrentUser();
-
-//     $scope.showAllUserExercise = ()=>{
-//         adminPullFactory.getAllUserExercises()
-//         .then((data)=>{
-//             // console.log("BIGGGGG data",data);
-//             $scope.allUserExercises = data;
-//         });
-//     };
-
-//     $scope.showCohortMembers = (cohort)=>{
-//        groupingPointsFactory.leaderboardCohortCall(cohort)
-//        .then((results)=>{
-//         $scope.allUsers = results;
-//         // console.log("$scope.cohortMemberList", results);
-//        });
-        
-//     };
-        
-
-//     $scope.showAllUserEvents = ()=>{
-//         adminPullFactory.getAllUserEvents()
-//         .then((data)=>{
-//             // console.log("BIGGGGG data",data);
-//             $scope.allUserEvents = data;
-//         });
-//     };
-
-
-//     $scope.showAllGroupings = () =>{
-//         adminPullFactory.getAllUserGroups()
-//         .then((data)=>{
-//             $scope.allGroupUsers = data;
-//             // console.log("BIGGGGG GROUP data", data);
-
-//         });
-//     };
-    
-// $scope.showAllUserExercise();
 $scope.showAllHorses();
-// $scope.showAllUserEvents();
-// $scope.showAllGroupings();
 });

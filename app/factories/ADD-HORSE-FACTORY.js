@@ -56,5 +56,32 @@ app.factory("AddHorseFactory", function($q, $http, FBCreds){
         }); 
     };
 
-return{addNewHorse, updateHorse, getSingleHorse, getServiceDetails};
+    const addNewService = function (obj) {
+        let newObj = JSON.stringify(obj);
+        return $http.post(`${FBCreds.databaseURL}/service.json`, newObj)
+            .then((data) => {
+                return data;
+            }, (error) => {
+                let errorCode = error.code;
+                let errorMessage = error.message;
+            });
+    };
+
+    const updateService = (obj, serviceID)=>{
+        console.log("PUSHING OBJECT", obj);
+        let newObj = JSON.stringify(obj);
+        $http.patch(`${FBCreds.databaseURL}/service/${serviceID}.json`, newObj)
+        .then((data) => {
+            console.log("data", data);
+            return data;
+        }, (error) => {
+            let errorCode = error.code;
+            let errorMessage = error.message;
+            console.log("error", errorCode, errorMessage);
+        });
+    };
+
+    
+
+return{addNewHorse, updateHorse, getSingleHorse, getServiceDetails, addNewService, updateService};
 });

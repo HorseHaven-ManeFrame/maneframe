@@ -1,7 +1,6 @@
 'use strict';
 
 app.factory('horseFactory', function($q, $http, FBCreds) {
-  
   const getAllHorses = () => {
     let horsesArray = [];
 
@@ -79,46 +78,49 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
   };
 
   const submitNewAdopter = function(newAdopterObject) {
-
-        return $q( (resolve, reject) => {
-            $http.post(`${FBCreds.databaseURL}/adopter.json`, newAdopterObject)  
-            .then( (data) => {
-                console.log("data", data);
-                resolve(data);
-            }, (error) => {
-                let errorCode = error.code;
-                let errorMessage = error.message;
-                console.log("error", errorCode, errorMessage);
-            });
-        });        
-    };
+    return $q((resolve, reject) => {
+      $http.post(`${FBCreds.databaseURL}/adopter.json`, newAdopterObject).then(
+        data => {
+          console.log('data', data);
+          resolve(data);
+        },
+        error => {
+          let errorCode = error.code;
+          let errorMessage = error.message;
+          console.log('error', errorCode, errorMessage);
+        }
+      );
+    });
+  };
 
   const deleteSingleAdopter = function(adopterFBID) {
-        return $q( (resolve, reject) => {
-        console.log ("adopterFBID FROM FACTORY", adopterFBID);
-            $http.delete(`${FBCreds.databaseURL}/adopter/${adopterFBID}.json`)  
-            .then( (data) => {
-                console.log("data", data);
-                resolve(data);
-            })
-            .catch((error) => {
-                reject(error);
-            });
-        }); 
+    return $q((resolve, reject) => {
+      console.log('adopterFBID FROM FACTORY', adopterFBID);
+      $http
+        .delete(`${FBCreds.databaseURL}/adopter/${adopterFBID}.json`)
+        .then(data => {
+          console.log('data', data);
+          resolve(data);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
   };
 
   const deleteSingleProvider = function(providerFBID) {
-        console.log ("providerFBID!", providerFBID);
-        return $q( (resolve, reject) => {
-            $http.delete(`${FBCreds.databaseURL}/service_provider/${providerFBID}.json`)  
-            .then( (data) => {
-                console.log("data", data);
-                resolve(data);
-            })
-            .catch((error) => {
-                reject(error);
-            });
-        }); 
+    console.log('providerFBID!', providerFBID);
+    return $q((resolve, reject) => {
+      $http
+        .delete(`${FBCreds.databaseURL}/service_provider/${providerFBID}.json`)
+        .then(data => {
+          console.log('data', data);
+          resolve(data);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
   };
 
   const getSingleProvider = function(providerFBID) {
@@ -153,42 +155,44 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
-
-
   const submitNewProvider = function(newProviderObject) {
+    return $q((resolve, reject) => {
+      $http.post(`${FBCreds.databaseURL}/service_provider.json`, newProviderObject).then(
+        data => {
+          console.log('data', data);
+          resolve(data);
+        },
+        error => {
+          let errorCode = error.code;
+          let errorMessage = error.message;
+          console.log('error', errorCode, errorMessage);
+        }
+      );
+    });
+  };
 
-        return $q( (resolve, reject) => {
-            $http.post(`${FBCreds.databaseURL}/service_provider.json`, newProviderObject)  
-            .then( (data) => {
-                console.log("data", data);
-                resolve(data);
-            }, (error) => {
-                let errorCode = error.code;
-                let errorMessage = error.message;
-                console.log("error", errorCode, errorMessage);
-            });
-        });        
-    };
+  const getAllCases = function() {
+    return $q((resolve, reject) => {
+      $http.get(`${FBCreds.databaseURL}/cases.json`).then(data => {
+        resolve(data);
+      });
+    });
+  };
 
-  
-
-
-
-
-  getAllAdopters();
+  // getAllAdopters();
 
   return {
-    getAllHorses,
     getAllServiceProviders,
+    submitUpdatedProvider,
+    deleteSingleProvider,
+    updateSingleAdopter,
+    deleteSingleAdopter,
     submitNewProvider,
     getSingleProvider,
-    deleteSingleProvider,
-    submitUpdatedProvider,
-    updateSingleAdopter,
     submitNewAdopter,
     getSingleAdopter,
     getAllAdopters,
-    deleteSingleAdopter
+    getAllHorses,
+    getAllCases,
   };
-
 });

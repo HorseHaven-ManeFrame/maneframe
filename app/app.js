@@ -25,6 +25,11 @@ app.config($routeProvider => {
         controller: 'AddHorseServicesController',
         resolve: {isAuth}
     })
+    .when('/admin/addWeight/:itemId', {
+        templateUrl: 'app/admin-view/forms/addHorseWeightForm.html',
+        controller: 'AddHorseWeightController',
+        resolve: {isAuth}
+    })
     .when('/admin/addHorse', {
       templateUrl: 'app/admin-view/forms/addHorseForm.html',
       controller: 'HorseController',

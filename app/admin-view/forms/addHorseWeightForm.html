@@ -1,0 +1,21 @@
+<h2>{{newTitle}}</h2>
+<form>
+        <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="title">Date of Weigh-In</label>
+                        <input type="date" ng-model="addWeight.date" class="form-control" id="title" placeholder="Weigh-In Date">
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                            <label for="title">Weight</label>
+                            <input type="text" ng-model="addWeight.weight" class="form-control" id="title" placeholder="Weight">
+                        </div>
+                </div>
+                
+            </div>
+    <div class="text-center">
+        <button class="btn btn-default" ng-click="submitNewWeight()">{{submitButtonText}}</button>
+    </div>
+</form>

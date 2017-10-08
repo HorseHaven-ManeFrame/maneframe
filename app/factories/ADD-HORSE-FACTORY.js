@@ -55,6 +55,20 @@ app.factory("AddHorseFactory", function($q, $http, FBCreds){
             });
         }); 
     };
+    const getWeightDetails = (horseID)=>{
+        console.log("horseID", horseID);
+        return $q( (resolve, reject) => {
+            $http.get(`${FBCreds.databaseURL}/horse/${horseID}/weight.json`)
+            .then( (data) => {
+                console.log("getServiceDetails data", data);
+                resolve(data.data);
+            }, (error) => {
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                console.log("error", errorCode, errorMessage);
+            });
+        }); 
+    };
 
     const addNewService = function (obj) {
         let newObj = JSON.stringify(obj);
@@ -66,6 +80,8 @@ app.factory("AddHorseFactory", function($q, $http, FBCreds){
                 let errorMessage = error.message;
             });
     };
+
+    
 
     const updateService = (obj, serviceID)=>{
         console.log("PUSHING OBJECT", obj);
@@ -81,7 +97,17 @@ app.factory("AddHorseFactory", function($q, $http, FBCreds){
         });
     };
 
-    
+    const addNewWeight = function (obj, horseID) {
+        let newObj = JSON.stringify(obj);
+        return $http.post(`${FBCreds.databaseURL}/horse/${horseID}/weight.json`, newObj)
+            .then((data) => {
+                return data;
+            }, (error) => {
+                let errorCode = error.code;
+                let errorMessage = error.message;
+            });
+    };
 
-return{addNewHorse, updateHorse, getSingleHorse, getServiceDetails, addNewService, updateService};
+
+return{addNewHorse, updateHorse, getSingleHorse, getServiceDetails, addNewService, updateService, addNewWeight, getWeightDetails};
 });

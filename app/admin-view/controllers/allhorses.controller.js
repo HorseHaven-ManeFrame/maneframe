@@ -1,12 +1,8 @@
 'use strict';
 
-<<<<<<< HEAD
 app.controller('allHorsesView', function($scope, horseFactory, FBCreds, authFactory) {
   $scope.title = "All Horses";
   
-=======
-app.controller('allHorsesView', function($scope, $routeParams, horseFactory, FBCreds, authFactory) {
->>>>>>> 774ec4b6c3cf3cc8a504815c00771fa22ffdcfc0
   $scope.showAllHorses = () => {
     horseFactory.getAllHorses().then(data => {
       $scope.allHorsesData = data;

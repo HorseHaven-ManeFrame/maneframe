@@ -94,8 +94,8 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     };
 
   const deleteSingleAdopter = function(adopterFBID) {
-        console.log ("adop", adopterFBID);
         return $q( (resolve, reject) => {
+        console.log ("adopterFBID FROM FACTORY", adopterFBID);
             $http.delete(`${FBCreds.databaseURL}/adopter/${adopterFBID}.json`)  
             .then( (data) => {
                 console.log("data", data);

@@ -35,3 +35,35 @@ app.controller("HorseController", function ($scope, $location, AddHorseFactory, 
     };
 
 });
+
+app.controller("AddHorseServicesController", function ($scope, $location, AddHorseFactory, authFactory, $routeParams, $window) {
+
+    
+    
+        $scope.newTitle = "Add a Service";
+        $scope.submitButtonText = "Submit Service";
+    
+        $scope.addService = {
+            date: "",
+            amount: "",
+            description: "",
+            horse_id: $routeParams.itemId,
+            service_provider_id:"",
+            type: ""
+        };
+    
+        $scope.submitNewService = function () {
+            AddHorseFactory.addNewService($scope.addService)
+                .then((response) => {
+                    // console.log("RESPONSE", response.data.name);
+                    let pushUgly = {
+                        service_id: response.data.name
+                    };
+                    AddHorseFactory.updateService(pushUgly, response.data.name);
+                    console.log("$routeParams", $routeParams.itemId);
+                    console.log("#!/admin/addHorse/{{$routeParams.itemId}}");
+                    $window.location.href = `#!/admin/addHorse/${$routeParams.itemId}`;
+                });
+        };
+    
+    });

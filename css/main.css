@@ -248,6 +248,11 @@ th, td, tr {
     margin-left: 0;
     padding: 15px;
     clear: both; } }
-/*# sourceMappingURL=main.css.map */
 
-/*# sourceMappingURL=main.css.map */
+    @media print
+    {    
+        .no-print, .no-print *
+        {
+            display: none !important;
+        }
+    }

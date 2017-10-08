@@ -22,7 +22,7 @@ app.config(($routeProvider) => {
         })
         .when('/admin/addService/:itemId', {
             templateUrl: 'app/admin-view/forms/addHorseServiceForm.html',
-            controller: 'EditHorse',
+            controller: 'AddHorseServicesController',
             resolve: {isAuth}
         })
         .when('/admin/addHorse', {

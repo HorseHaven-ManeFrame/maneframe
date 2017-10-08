@@ -7,7 +7,7 @@
     </div>
     <div class="col-4">
         <div class="col-sm">
-            <a ng-href="#!/admin/addHorse" class="btn btn-primary btn-block add-horse-three">
+            <a ng-href="#!/admin/addCase" class="btn btn-primary btn-block add-horse-three">
                 <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
                 <span class="buttonText"> Add A Case</span>
             </a>
@@ -31,7 +31,7 @@
     <tbody>
         <tr ng-repeat="case in allCases |  toArray | filter:queryCase | orderBy:orderByField:reverseSort">
             <td>
-                <a ng-href="#!/admin/addHorse/{{horse.id}}">{{case.court_case_id}}</a>
+                <a ng-href="#!/admin/addCase/{{case.case_id}}">{{case.court_case_id}}</a>
             </td>
             <td>{{case.case_name}}</td>
             <td>{{case.description}}</td>

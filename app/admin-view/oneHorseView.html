@@ -1,8 +1,12 @@
 <div class="row">
     <div class="col-sm-8">
             <h3>{{addHorse.name}}'s Details (County: {{addHorse.county}})  <a ng-href="#!/admin/addHorse/edit/{{addHorse.horse_id}}"><i class="fa fa-pencil no-print" aria-hidden="true"></i></a></h3>
-            <p>Breed: {{addHorse.breed}}</p>
-        <table class="table oneHorse">
+            <p>Breed: {{addHorse.breed}} 
+                
+                <a href="javascript:window.print()"><img class="no-print" src="app/assets/images/click-here-to-print.jpg" alt="print this page" id="print-button" /></a>
+                
+                </p>
+                <table class="table oneHorse">
             <tbody>
                 <tr>
                     <th scope="row">Arrival</th>
@@ -38,24 +42,16 @@
                         <h4>Weight History</h4> 
                 </div>
                 <div class="col-sm">
-                        <a ng-href="#!/admin/addHorse" class="btn btn-primary add-horse"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><span class="buttonText"> Add A Weight</span></a>
+                        <a ng-href="#!/admin/addWeight/{{addHorse.horse_id}}" class="btn btn-primary add-horse"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><span class="buttonText"> Add A Weight</span></a>
                     </div>
     
             </div>
                 
             <table class="table table-inverse">
                 <tbody>
-                    <tr>
-                        <th scope="row">Age</th>
-                        <td>{{addHorse.age}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Gender</th>
-                        <td>{{addHorse.gender}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Breed</th>
-                        <td>{{addHorse.breed}}</td>
+                    <tr ng-repeat="weights in horseWeights">
+                        <th scope="row">{{weights.date | date: 'MM/dd/yyyy'}}</th>
+                        <td>{{weights.weight}} lbs.</td>
                     </tr>
                 </tbody>
             </table>

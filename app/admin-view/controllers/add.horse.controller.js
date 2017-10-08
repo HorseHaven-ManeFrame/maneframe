@@ -38,8 +38,6 @@ app.controller("HorseController", function ($scope, $location, AddHorseFactory, 
 
 app.controller("AddHorseServicesController", function ($scope, $location, AddHorseFactory, authFactory, $routeParams, $window) {
 
-    
-    
         $scope.newTitle = "Add a Service";
         $scope.submitButtonText = "Submit Service";
     
@@ -62,6 +60,30 @@ app.controller("AddHorseServicesController", function ($scope, $location, AddHor
                     AddHorseFactory.updateService(pushUgly, response.data.name);
                     console.log("$routeParams", $routeParams.itemId);
                     console.log("#!/admin/addHorse/{{$routeParams.itemId}}");
+                    $window.location.href = `#!/admin/addHorse/${$routeParams.itemId}`;
+                });
+        };
+    
+    });
+
+app.controller("AddHorseWeightController", function ($scope, $location, AddHorseFactory, authFactory, $routeParams, $window) {
+
+        $scope.newTitle = "Add a Weight";
+        $scope.submitButtonText = "Submit Weight";
+    
+        $scope.addWeight = {
+            date: "",
+            weight: "",
+        };
+    
+        $scope.submitNewWeight = function () {
+            AddHorseFactory.addNewWeight($scope.addWeight, $routeParams.itemId)
+                .then((response) => {
+                    // console.log("RESPONSE", response.data.name);
+                    // let pushUgly = {
+                    //     weight_id: response.data.name
+                    // };
+                    // AddHorseFactory.updateWeight(pushUgly, $routeParams.itemId, response.data.name);
                     $window.location.href = `#!/admin/addHorse/${$routeParams.itemId}`;
                 });
         };

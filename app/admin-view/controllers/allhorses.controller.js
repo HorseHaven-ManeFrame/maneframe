@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('allHorsesView', function($scope, horseFactory, FBCreds, authFactory) {
-  $scope.title = "All Horses"
+  $scope.title = "All Horses";
   
   $scope.showAllHorses = () => {
     horseFactory.getAllHorses().then(data => {
@@ -33,7 +33,7 @@ app.controller('allHorsesView', function($scope, horseFactory, FBCreds, authFact
 	      	let dateEligibleToOwn_toMs = dateEligibleToOwnObj.getTime();
 	      	let differenceOfDates = dateEligibleToOwn_toMs - today_toMs;
 	      	let daysTillEligibleToOwn = Math.floor(differenceOfDates / oneDay);
-	      	console.log ("days till eligible to own", daysTillEligibleToOwn);
+	      	// console.log ("days till eligible to own", daysTillEligibleToOwn);
 	            if (daysTillEligibleToOwn < 91 && daysTillEligibleToOwn > -1) {
 	            	ownershipSoon.push(item);
 	            	// console.log (new Date(item.eligible_for_ownership_date));

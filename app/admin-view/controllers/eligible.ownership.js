@@ -2,7 +2,7 @@
 
 app.controller("ViewEligibleForOwnershipController", function($scope, horseFactory, FBCreds, authFactory){
 
-	$scope.title = "Eligible for Ownership"
+	$scope.title = "Eligible for Ownership";
 
     $scope.showAllHorses = () =>{
     	let ownershipSoon = [];

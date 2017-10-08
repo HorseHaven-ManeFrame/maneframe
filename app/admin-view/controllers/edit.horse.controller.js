@@ -52,19 +52,20 @@ app.controller("EditHorse", function ($scope, $location, authFactory, $routePara
             });
         };
 
-        $scope.getServices();
-
-        $scope.serviceTitle = "Add a Service";
-        $scope.submitButtonText = "Submit Service";
-    
-        $scope.addService = {
-            horse_id: $routeParams.itemId,
-            amount:"",
-            date:"",
-            description:"",
-            type:""
-            
+        $scope.getWeights = function (){
+            AddHorseFactory.getWeightDetails($routeParams.itemId)
+            .then((details)=>{
+                let weights = [];
+                let keys = Object.keys(details);
+                keys.forEach((item)=>{
+                    weights.push(details[item]);
+                });
+                console.log("DETAILS weights weights weights ", weights);
+                $scope.horseWeights = weights;
+            });
         };
 
+        $scope.getWeights();
+        $scope.getServices();
 
 });

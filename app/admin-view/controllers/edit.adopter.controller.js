@@ -1,42 +1,48 @@
-"use strict";
+'use strict';
 
-app.controller("EditAdopter", function ($scope, $location, adminEditFactory, authFactory, $routeParams, getUserInfo) {
-    
-        $scope.newEventTitle = "Edit Event";
-        $scope.submitButtonText = "Submit Edited Event";
-        let user = authFactory.getCurrentUser();
-    
-        $scope.event = {
-            eventTitle: "",
-            eventLink: "",
-            begDate: "",
-            locationName: "",
-            startTime: "",
-            locationAddy: "",
-            points: "",
-            uid: user
-        };
+app.controller('EditAdopter', function(
+  $scope,
+  $location,
+  horseFactory,
+  adminEditFactory,
+  authFactory,
+  $routeParams,
+  getUserInfo
+) {
+  $scope.newEventTitle = 'Edit Adopter';
+  $scope.submitButtonText = 'Submit Edited Event';
+  let user = authFactory.getCurrentUser();
 
-        const showEditEvent = function () {
-            getUserInfo.getBIGSubmittedEvent($routeParams.itemId)
-                .then((data) => {
-                    // console.log("data", data);
-                    $scope.event = data;
-                    $scope.event.begDate = new Date(data.begDate);
-                    $scope.event.startTime = new Date(data.startTime);
-                    $scope.event.id = $routeParams.itemId;
-                });
-        };
-        showEditEvent();
+  $scope.adopter = {
+      address: '',
+      zipcode: '',
+      email: '',
+      phone: '',
+      state: '',
+      name: '',
+      city: '',
+      uid: '',
+  };
 
-        $scope.submitNewEvent = function () {
-            adminEditFactory.updateEventAdmin($scope.event);
-            // .then((data)=>{
-            //     //$location allows to change URL path
-            //     // $location.path("#!/admin/groupsevents");
-            // });
-        };
-        
+  const showEditAdopter = function() {
+    horseFactory.getSingleAdopter($routeParams.itemId).then(data => {
+      $scope.adopter = data.data;
+    });
+  };
+  showEditAdopter();
+  
+  $scope.updateAdopter = function () {
+      console.log("Update Adopter: ", $scope.adopter)
+      horseFactory.updateSingleAdopter($routeParams.itemId, $scope.adopter)
+          .then(data => {
+      })
+  }  
 
-
+  $scope.submitNewEvent = function() {
+    adminEditFactory.updateEventAdmin($scope.event);
+    // .then((data)=>{
+    //     //$location allows to change URL path
+    //     // $location.path("#!/admin/groupsevents");
+    // });
+  };
 });

@@ -1,7 +1,6 @@
 "use strict";
 
-app.controller("ServiceProviderController", function ($scope, $route, horseFactory) {
-
+app.controller("ServiceProviderController", function ($scope, authFactory, $route, horseFactory) {
 
     $scope.showAllServiceProviders = () =>{
         horseFactory.getAllServiceProviders()
@@ -13,6 +12,7 @@ app.controller("ServiceProviderController", function ($scope, $route, horseFacto
         });
     };
 
+
     $scope.deleteSingleProvider = function (id) {
         horseFactory.deleteSingleProvider(id)
             .then(() => {
@@ -21,5 +21,4 @@ app.controller("ServiceProviderController", function ($scope, $route, horseFacto
     };
 
 $scope.showAllServiceProviders();
-
 });

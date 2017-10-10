@@ -1,7 +1,5 @@
 "use strict";
 
-// console.log("authfactory, yo!");
-
 app.factory("authFactory", function ($q, $http, FBCreds, $window, $location) {
     var currentUser = null;
     let currentUserName = null;
@@ -11,7 +9,6 @@ app.factory("authFactory", function ($q, $http, FBCreds, $window, $location) {
             firebase.auth().onAuthStateChanged((user) => {
                 if (user) {
                     currentUser = user.uid;
-                    // console.log("currentUser", currentUser);
                     resolve(true);
                 } else {
                     resolve(false);
@@ -21,48 +18,12 @@ app.factory("authFactory", function ($q, $http, FBCreds, $window, $location) {
     };
 
     const logIn = function (userObj) {
-        return firebase.auth().signInWithEmailAndPassword(userObj.email, userObj.password)
-            .then((data) => {
+        return firebase.auth().signInWithEmailAndPassword(userObj.email, userObj.password).then((data) => {
                 var currentUser = data.uid;
-                $http.get(`${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${currentUser}"`)
-                    .then((results) => {
-                        let userExists = results.data;
-                        let key = Object.keys(results.data);
-                        if (key.length === 0) {
-                            $window.location.href = "#!/admin";
-                        } else {
-                            // console.log("User already in DB!", results.data);
-                            $window.location.href = "#!/admin";
-                        }
-                    });
-            })
-            .catch(function (error) {
+                $window.location.href = "#!/admin";
+            }).catch(function (error) {
                 let errorCode = error.code;
                 let errorMessage = error.message;
-                // console.log("error", errorCode, errorMessage);
-            });
-    };
-
-    const areYouAdmin = (currentUser)=>{
-        return $q((resolve, reject)=>{
-            $http.get(`${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${currentUser}"`)
-            .then((results)=>{
-                // console.log("areYouAdmin", results.data);
-            });
-        });
-    };
-
-    const addBrandNewUser = function (addNewUser) {
-        let newObj = JSON.stringify(addNewUser);
-        return $http.post(`${FBCreds.databaseURL}/users.json`, newObj)
-            .then((data) => {
-                // console.log("data", data);
-                $location.url("#/");
-                return data;
-            }, (error) => {
-                let errorCode = error.code;
-                let errorMessage = error.message;
-                // console.log("error", errorCode, errorMessage);
             });
     };
 
@@ -70,44 +31,7 @@ app.factory("authFactory", function ($q, $http, FBCreds, $window, $location) {
         return currentUser;
     };
 
-    const editUser = function (obj) {
-        // console.log("object", obj);
-        let currentUser = getCurrentUser();
-        return $q((resolve, reject) => {
-            $http.get(`${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${currentUser}"`)
-                .then((results) => {
-                    let resultID = Object.keys(results.data);
-                    // console.log(resultID);
-                    return (resultID);
-                })
-                .then((resultID) => {
-                    let newObj = JSON.stringify(obj);
-                    // console.log(newObj);
-                    $http.patch(`${FBCreds.databaseURL}/users/${resultID}.json`, newObj).then((data) => {
-                            $location.url("#/");
-                            resolve(data);
-                        })
-                        .catch((error) => {
-                            reject(error);
-                        });
-                });
-        });
-    };
-
-    const getSingleUser = function (userUglyId) {
-        return $q((resolve, reject) => {
-            $http.get(`${FBCreds.databaseURL}/users/${userUglyId}.json`)
-                .then((itemObj) => {
-                    resolve(itemObj.data);
-                })
-                .catch((error) => {
-                    reject(error);
-                });
-        });
-    };
-
     const logOut = function () {
-        // console.log("logoutUser");
         return firebase.auth().signOut();
     };
 
@@ -115,11 +39,6 @@ app.factory("authFactory", function ($q, $http, FBCreds, $window, $location) {
         getCurrentUser,
         logIn,
         logOut,
-        isAuthenticated,
-        addBrandNewUser,
-        editUser,
-        getSingleUser,
-        areYouAdmin
+        isAuthenticated
     };
-
 });

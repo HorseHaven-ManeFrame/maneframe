@@ -1,5 +1,5 @@
 "use strict";
-app.controller("userCtrl", function ($scope, $window, authFactory, $location, $http, FBCreds, pushUserStuffFactory) {
+app.controller("userCtrl", function ($scope, $window, authFactory, $location, $http, FBCreds) {
 
     $scope.account = {
         email: "",

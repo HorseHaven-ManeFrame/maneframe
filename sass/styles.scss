@@ -1,0 +1,263 @@
+body {
+    /* background: #EFEFEF;  */ }
+  
+  .container {
+    margin-top: 30px;
+    margin-bottom: 150px; }
+  
+  .pageTitle {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #709B58;
+    padding-bottom: 10px;
+    text-align: center;
+    color: #686767; }
+  
+  .pageTitle h1 {
+    font-size: 2em;
+    text-transform: uppercase; }
+  
+  h4.white {
+    color: white; }
+  
+  h4.header {
+    color: white;
+    font-size: .9em;
+    font-weight: bold; }
+  
+  /* ----TABLES FOR IND. HORSE---- */
+  .table.table-inverse {
+    background: rgba(191, 186, 147, 0.267);
+    font-size: 1em;
+    line-height: .8em;
+    color: black; }
+  
+  .table.oneHorse {
+    font-size: .8em;
+    text-align: left;
+    line-height: .5em;
+    overflow: scroll; }
+  
+  /* ----DASHBOARD----- */
+  .col-sm {
+    text-align: center;
+    margin: 5px;
+    vertical-align: middle; }
+  
+  .dbNumber {
+    color: white;
+    font-size: 4em;
+    margin-bottom: -15px;
+    /* display: flex; */ }
+  
+  .btn.btn-primary.btn-lg.btn-block.dbButton {
+    background: #3B1700;
+    border: none;
+    /* margin: 5px; */ }
+  
+  .btn.btn-primary.btn-lg.btn-block.dbButton:hover {
+    background: #709B58; }
+  
+  .btn.btn-primary.btn-lg.btn-block.add-case {
+    background: #213E43;
+    border: none;
+    /* margin: 5px; */ }
+  
+  .buttonText {
+    color: white; }
+  
+  .btn.btn-primary.btn-lg.btn-block.add-case:hover {
+    background: #709B58; }
+  
+  a.btn.btn-primary.btn-lg.btn-block.add-horse {
+    background: #A56D37;
+    color: white;
+    border: none;
+    /* margin: 5px; */ }
+  
+  a.btn.btn-primary.btn-block.add-horse-three {
+    background: #A56D37;
+    margin-top: -10px;
+    color: white;
+    border: none;
+    /* margin: 5px; */ }
+  
+  .btn.btn-primary.btn-lg.btn-block.add-horse:hover {
+    background: #709B58; }
+  
+  /* ----FORMS---- */
+  .btn.btn-default {
+    background: #4A3952;
+    color: white; }
+  
+  .btn.btn-default:hover {
+    background: #F75430; }
+  
+  .textForm {
+    margin-bottom: 5px; }
+  
+  .textForm h3 {
+    margin-bottom: -5px; }
+  
+  a:visited, a:active, a:link {
+    color: #41555C !important; }
+  
+  a:focus, a:hover, a:active {
+    /* text-decoration: none;  */ }
+  
+  .text-black {
+    color: #333 !important; }
+  
+  a.text-black:focus, a.text-black:hover {
+    color: #7b7b7b !important; }
+  
+  /* --- NAVIGATION ELEMENTS --- */
+  .loginStuff {
+    display: block;
+    background: #e3a000;
+    width: 150%;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    height: 50px;
+    border: none; }
+  
+  .loginStuff:hover {
+    text-decoration: none;
+    background: #808080; }
+  
+  a.link-block {
+    display: block; }
+  
+  .navbar.fixed-bottom {
+    height: 50px;
+    display: flex;
+    padding: 0px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    align-content: center; }
+  
+  .navbar.fixed-bottom.admin {
+    background: #709B58;
+    border-top: white 1px solid; }
+  
+  .nav-item {
+    width: 20%;
+    padding: 10px;
+    height: 60px;
+    border-left: 1px solid white;
+    text-align: center; }
+  
+  .nav-item img {
+    width: 32px; }
+  
+  .nav-item.first {
+    border: none; }
+  
+  .fa-user-md,
+  .fa-plus-circle,
+  .fa-id-card-o,
+  .fa-home,
+  .fa-users,
+  .fa-trophy,
+  .fa-book,
+  .fa-list-alt,
+  .fa-sign-out {
+    color: white; }
+  
+  .fa-home:hover,
+  .fa-users:hover,
+  .fa-trophy:hover,
+  .fa-book:hover,
+  .fa-list-alt:hover
+  .fa-sign-out:hover {
+    text-decoration: none;
+    color: white; }
+  
+  /* ---LOGIN FORM---- */
+  .loginTable {
+    width: 50%;
+    border: 1px solid #709B58;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: white; }
+  
+  .loginTable img {
+    padding: 20px;
+    width: 300px; }
+  
+  .buttons {
+    display: block;
+    width: 40%; }
+  
+  th, td, tr {
+    text-align: center; }
+  
+  .search {
+    width: 40%;
+    margin-top: 20px; }
+  
+  .card {
+    border: none; }
+  
+  .card.rank {
+    border: 2px solid #3AA3DD;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 10px; }
+  
+  .btn-outline-info {
+    border: #709B58 1px solid; }
+  
+  /* --- MOBILE/RESPONSIVE ---- */
+  @media screen and (max-width: 680px) {
+    .navbar.fixed-bottom {
+      height: 45px; }
+  
+    .loginTable img {
+      padding: 10px;
+      width: 100%; }
+  
+    .loginTable {
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 100px;
+      padding: 30px; }
+  
+    .list-header img {
+      overflow: hidden;
+      display: block;
+      margin: 0 auto; }
+  
+    .dbNumber {
+      font-size: 2em;
+      margin-bottom: -15px;
+      /* display: flex; */ } }
+  @media only screen and (max-width: 991px) {
+    .list-header {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border-radius: 0; }
+  
+    .list-content {
+      display: block;
+      width: 100%;
+      margin-left: 0;
+      padding: 15px;
+      clear: both; } }
+  
+      @media print
+      {    
+          .no-print, .no-print *
+          {
+              display: none !important;
+          }
+      }
+  
+      #print-button{
+        width:100px;
+      }
+  

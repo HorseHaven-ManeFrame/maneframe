@@ -1,5 +1,5 @@
 .DS_Store
-sass/*
+css/*
 lib/node_modules
 app/creds/*
 notes

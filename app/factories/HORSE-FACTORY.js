@@ -1,6 +1,12 @@
 'use strict';
 
 app.factory('horseFactory', function($q, $http, FBCreds) {
+  
+  /**
+   * Gets all horses.
+   *
+   * @return     {promise}  All horses.
+   */
   const getAllHorses = () => {
     let horsesArray = [];
 
@@ -9,7 +15,6 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
         console.log('all horses data:', results.data);
 
         let horseCollection = results.data;
-        // console.log("itemCollection", itemCollection);
         Object.keys(horseCollection).forEach(key => {
           horseCollection[key].id = key;
           horsesArray.push(horseCollection[key]);
@@ -19,6 +24,12 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+
+  /**
+   * Gets all service providers.
+   *
+   * @return     {promise}  All service providers.
+   */
   const getAllServiceProviders = () => {
     let servicesArray = [];
 
@@ -27,7 +38,6 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
         console.log('all horses data:', results.data);
 
         let serviceCollection = results.data;
-        // console.log("itemCollection", itemCollection);
         Object.keys(serviceCollection).forEach(key => {
           serviceCollection[key].id = key;
           servicesArray.push(serviceCollection[key]);
@@ -37,6 +47,12 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+
+  /**
+   * Gets all adopters.
+   *
+   * @return     {promise}  All adopters.
+   */
   const getAllAdopters = () => {
     let adoptersArray = [];
 
@@ -45,7 +61,6 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
         console.log('all adopter data:', results.data);
 
         let adopterCollection = results.data;
-        // console.log("itemCollection", itemCollection);
         Object.keys(adopterCollection).forEach(key => {
           adopterCollection[key].id = key;
           adoptersArray.push(adopterCollection[key]);
@@ -55,6 +70,13 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+
+  /**
+   * Gets the single adopter.
+   *
+   * @param      {string}  id   The adopter identifier
+   * @return     {promise}      The single adopter.
+   */
   const getSingleAdopter = id => {
     return $q((resolve, reject) => {
       $http.get(`${FBCreds.databaseURL}/adopter/${id}.json`).then(data => {
@@ -63,6 +85,14 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+
+  /**
+   * Updates a single adopter.
+   *
+   * @param      {string}  id             The adopter identifier
+   * @param      {object}  adopterObject  The adopter object
+   * @return     {promise}                The updated adopter
+   */
   const updateSingleAdopter = (id, adopterObject) => {
     return $q((resolve, reject) => {
       let adopterJson = JSON.stringify(adopterObject);
@@ -77,6 +107,13 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+
+  /**
+   * Adds new adopter.
+   *
+   * @param      {object}  newAdopterObject  The new adopter object
+   * @return     {promise}                   The new adopter
+   */
   const submitNewAdopter = function(newAdopterObject) {
     return $q((resolve, reject) => {
       $http.post(`${FBCreds.databaseURL}/adopter.json`, newAdopterObject).then(
@@ -92,6 +129,13 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+
+  /**
+   * Deletes a single adopter.
+   *
+   * @param      {string}  adopterFBID  The adopter identifier
+   * @return     {promise}              The just deleted adopter.
+   */
   const deleteSingleAdopter = function(adopterFBID) {
     return $q((resolve, reject) => {
       $http
@@ -105,6 +149,13 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+
+  /**
+   * Deletes a single provider.
+   *
+   * @param      {string}  providerFBID  The provider identifier.
+   * @return     {promise}               The just deleted provider.
+   */
   const deleteSingleProvider = function(providerFBID) {
     return $q((resolve, reject) => {
       $http
@@ -118,6 +169,12 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+  /**
+   * Gets the single provider.
+   *
+   * @param      {string}  providerFBID  The provider identifier
+   * @return     {promise}               The single provider.
+   */
   const getSingleProvider = function(providerFBID) {
     return $q((resolve, reject) => {
       $http.get(`https://horse-haven-tn.firebaseio.com/service_provider/${providerFBID}.json`).then(
@@ -133,6 +190,13 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+  /**
+   * Updates single provider.
+   *
+   * @param      {string}  providerFBID          The provider indentifier
+   * @param      {object}  editedProviderObject  The edited provider object
+   * @return     {promise}                       The just updated provider
+   */
   const submitUpdatedProvider = function(providerFBID, editedProviderObject) {
     return $q((resolve, reject) => {
       let stringyObject = JSON.stringify(editedProviderObject);
@@ -147,6 +211,12 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+  /**
+   * Adds a new provider.
+   *
+   * @param      {object}  newProviderObject  The new provider object
+   * @return     {promise}                    The just added provider
+   */
   const submitNewProvider = function(newProviderObject) {
     return $q((resolve, reject) => {
       $http.post(`${FBCreds.databaseURL}/service_provider.json`, newProviderObject).then(
@@ -162,6 +232,11 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+  /**
+   * Gets all cases.
+   *
+   * @return     {promise}  All cases.
+   */
   const getAllCases = function() {
     return $q((resolve, reject) => {
       $http.get(`${FBCreds.databaseURL}/cases.json`).then(data => {
@@ -170,6 +245,12 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+  /**
+   * Gets the single case.
+   *
+   * @param      {string}  id    The case identifier
+   * @return     {promise}       The single case.
+   */
   const getSingleCase = id => {
     return $q((resolve, reject) => {
       $http.get(`${FBCreds.databaseURL}/cases/${id}.json`).then(data => {
@@ -178,6 +259,13 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+  /**
+   * Updates a single case.
+   *
+   * @param      {string}  caseFBID          The case identifier
+   * @param      {object}  editedCaseObject  The edited case object
+   * @return     {promise}                   The just edited case
+   */
   const submitUpdatedCase = function(caseFBID, editedCaseObject) {
     return $q((resolve, reject) => {
       let stringifyObject = JSON.stringify(editedCaseObject);
@@ -192,6 +280,12 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+  /**
+   * Adds a new case.
+   *
+   * @param      {object}  newCase  The new case
+   * @return     {promixe}          The just added case
+   */
   const submitNewCase = function(newCase) {
     return $q((resolve, reject) => {
       $http.post(`${FBCreds.databaseURL}/cases.json`, newCase).then(
@@ -215,8 +309,6 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     deleteSingleAdopter,
     submitNewProvider,
     getSingleProvider,
-    submitUpdatedCase,
-    submitNewAdopter,
     getSingleAdopter,
     getAllAdopters,
     getSingleCase,

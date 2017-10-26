@@ -248,15 +248,10 @@ th, td, tr {
     margin-left: 0;
     padding: 15px;
     clear: both; } }
+@media print {
+  .no-print, .no-print * {
+    display: none !important; } }
+#print-button {
+  width: 100px; }
 
-    @media print
-    {    
-        .no-print, .no-print *
-        {
-            display: none !important;
-        }
-    }
-
-    #print-button{
-      width:100px;
-    }
+/*# sourceMappingURL=main.css.map */

@@ -101,7 +101,7 @@ app.config($routeProvider => {
       resolve: { isAuth }
     })
     .when('/admin/adopterInfo/:itemId', {
-      templateUrl: 'app/admin-view/allHorsesView.html',
+      templateUrl: 'app/admin-view/singleAdopterView.html',
       controller: 'ViewAdoptersController',
       resolve: { isAuth }
     })

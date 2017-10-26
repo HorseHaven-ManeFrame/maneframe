@@ -1,6 +1,7 @@
 .DS_Store
 css/*
 lib/node_modules
+lib/.sass-cache/*
 app/creds/*
 notes
 data/

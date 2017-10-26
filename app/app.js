@@ -106,10 +106,10 @@ app.config($routeProvider => {
       resolve: { isAuth }
     })
     .when('/admin/eligibility', {
-            templateUrl: 'app/admin-view/allHorsesView.html',
-            controller: 'ViewEligibleForOwnershipController',
-            resolve: {isAuth}
-            })
+      templateUrl: 'app/admin-view/allEligibleHorsesView.html',
+      controller: 'ViewEligibleForOwnershipController',
+      resolve: { isAuth }
+    })
     .otherwise('/');
 
 });

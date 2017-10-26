@@ -1,11 +1,5 @@
 <div class="pageTitle">
-    <h1>{{title}}</h1><h1>{{adopterName}}</h1>
-</div>
-<div class="adopter">
-    ADDRESS: {{adopterAddress}}, {{adopterCity}}<br>
-    EMAIL: {{adopterEmail}}<br>
-    PHONE: {{adopterPhone}}
-
+    <h1>{{title}}</h1>
 </div>
 <div class="row">
     <div class="col-8">
@@ -35,7 +29,7 @@
             <td><a ng-href="#!/admin/addHorse/{{horse.id}}">{{horse.name}}</a></td>
             <td>{{horse.status}}</td>
             <td>{{horse.county}}</td>
-            <td>{{horse.arrive_date | date}}</td>
+            <td>{{horse.eligible_for_ownership_date | date}}</td>
         </tr>
     </tbody>
 </table>

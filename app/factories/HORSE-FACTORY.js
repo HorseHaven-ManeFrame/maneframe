@@ -11,7 +11,8 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     let horsesArray = [];
 
     return $q((resolve, reject) => {
-      $http.get(`${FBCreds.databaseURL}/horse.json?orderBy="adopter_id"&equalTo="${adopterId}"`).then(results => {
+      $http.get(`${FBCreds.databaseURL}/horse.json?orderBy="adopter_id"&equalTo="${adopterId}"`)
+      .then(results => {
         console.log('all horses data:', results.data);
 
         let horseCollection = results.data;
@@ -19,6 +20,7 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
           horseCollection[key].id = key;
           horsesArray.push(horseCollection[key]);
         });
+        console.log("horsesArray", horsesArray);
         resolve(horsesArray);
       });
     });

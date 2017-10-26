@@ -1,6 +1,8 @@
 'use strict';
 
 app.controller('ViewAdoptersController', function($scope, $route, $routeParams, horseFactory) {
+
+  // $scope.title = "Adopter Horses Details";
   
   $scope.showAllAdopters = () => {
     horseFactory.getAllAdopters()
@@ -8,6 +10,8 @@ app.controller('ViewAdoptersController', function($scope, $route, $routeParams, 
       $scope.allAdoptersData = data;
     });
   };
+
+
   
   $scope.deleteSingleAdopter = function (id) {
      horseFactory.deleteSingleAdopter(id)
@@ -17,10 +21,29 @@ app.controller('ViewAdoptersController', function($scope, $route, $routeParams, 
     };
 
     $scope.showAllHorses = () => {
-      horseFactory.getSingleAdopterHorses($routeParams.itemId);
+    horseFactory.getSingleAdopterHorses($routeParams.itemId)
+      .then((data) =>{
+        $scope.allHorsesData =  data;
+      });
+
+    };
+
+    $scope.showEditAdopter = function() {
+      horseFactory.getSingleAdopter($routeParams.itemId)
+      .then(data => {
+        $scope.adopter = data.data;
+        console.log("$scope.adopter", $scope.adopter);
+        $scope.adopterName = data.data.name;
+        $scope.adopterAddress = data.data.address;
+        $scope.adopterCity = data.data.city;
+        $scope.adopterEmail = data.data.email;
+        $scope.adopterPhone = data.data.phone;
+    
+      });
     };
   
-    $scope.showAllHorses();
+  $scope.showEditAdopter();
+  $scope.showAllHorses();
   $scope.showAllAdopters();
 
 });

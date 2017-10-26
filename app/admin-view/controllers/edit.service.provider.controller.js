@@ -31,7 +31,6 @@ app.controller("EditServiceProvider", function ($scope, $location, horseFactory,
 
 
     $scope.submitNewProvider = function () {
-        // console.log ("WHAT IS THIS", $scope.provider);
         horseFactory.submitUpdatedProvider($routeParams.itemId, $scope.provider)
         .then((data)=>{
         });

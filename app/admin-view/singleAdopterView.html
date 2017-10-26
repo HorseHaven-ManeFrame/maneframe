@@ -1,0 +1,38 @@
+<div class="pageTitle">
+    <h1>{{title}}</h1><h1>{{adopterName}}</h1>
+    <p>{{adopterAddress}} {{adopterCity}}<br>
+        {{adopterEmail}}<br>
+        {{adopterPhone}}</p>
+</div>
+<div class="row">
+    <div class="col-8">
+        <input type="search" ng-model="queryHorses" class="form-control" aria-describedby="search" placeholder="Search Horses"
+            autofocus>
+    </div>
+    <div class="col-4">   
+            <div class="col-sm">
+                    <a ng-href="#!/admin/addHorse" class="btn btn-primary btn-block add-horse-three"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><span class="buttonText"> Add A Horse</span></a>
+                  </div>        
+    </div>
+</div>
+<table class="table table-striped table-bordered table-hover adminTable">
+    <thead>
+        <tr>
+            <!-- <th><a href="" ng-click="orderByField='case'; reverseSort = !reverseSort">Case</a></th> -->
+            <th><a href="" ng-click="orderByField='name'; reverseSort = !reverseSort">Name</a></th>
+            <th><a href="" ng-click="orderByField='status'; reverseSort = !reverseSort">Status</a></th>
+            <th><a href="" ng-click="orderByField='county'; reverseSort = !reverseSort">County</a></th>
+            <th><a href="" ng-click="orderByField='id'; reverseSort = !reverseSort">{{date}}</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="horse in allHorsesData | filter:queryHorses | orderBy:orderByField:reverseSort">
+            <!-- <tr ng-repeat="horse in allHorsesData"> -->
+            <!-- <th scope="row">{{horse.caseID}}</th> -->
+            <td><a ng-href="#!/admin/addHorse/{{horse.id}}">{{horse.name}}</a></td>
+            <td>{{horse.status}}</td>
+            <td>{{horse.county}}</td>
+            <td>{{horse.arrive_date | date}}</td>
+        </tr>
+    </tbody>
+</table>

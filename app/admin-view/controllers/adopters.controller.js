@@ -1,6 +1,8 @@
 'use strict';
 
 app.controller('ViewAdoptersController', function($scope, $route, $routeParams, horseFactory) {
+
+  $scope.date = "Eligibility Date";
   
   $scope.showAllAdopters = () => {
     horseFactory.getAllAdopters()

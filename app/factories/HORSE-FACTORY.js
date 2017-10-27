@@ -3,6 +3,31 @@
 app.factory('horseFactory', function($q, $http, FBCreds) {
   
   /**
+   * Gets all Singe Adopter horses.
+   *
+   * @return     {promise}  All Singe Adopter horses.
+   */
+  const getSingleAdopterHorses = (adopterId) => {
+    let horsesArray = [];
+
+    return $q((resolve, reject) => {
+      $http.get(`${FBCreds.databaseURL}/horse.json?orderBy="adopter_id"&equalTo="${adopterId}"`)
+      .then(results => {
+        console.log('all horses data:', results.data);
+
+        let horseCollection = results.data;
+        Object.keys(horseCollection).forEach(key => {
+          horseCollection[key].id = key;
+          horsesArray.push(horseCollection[key]);
+        });
+        console.log("horsesArray", horsesArray);
+        resolve(horsesArray);
+      });
+    });
+  };
+
+
+  /**
    * Gets all horses.
    *
    * @return     {promise}  All horses.
@@ -314,6 +339,7 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     getSingleCase,
     submitNewCase,
     getAllHorses,
-    getAllCases
+    getAllCases,
+    getSingleAdopterHorses
   };
 });

@@ -23,7 +23,7 @@
     </thead>
     <tbody ng-repeat="adopter in allAdoptersData | filter:queryEvents | orderBy: 'begDate'">
         <tr>
-            <th scope="row"><a href=""><i ng-click="deleteSingleAdopter(adopter.uid)" class="fa fa-trash-o" aria-hidden="true"></i></a> | <a ng-href="#!/admin/addAdopter/{{adopter.uid}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            <th scope="row"><a href=""><i ng-click="deleteSingleAdopter(adopter.uid)" class="fa fa-trash-o" aria-hidden="true"></i></a> | <a ng-href="#!/admin/addAdopter/{{adopter.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
             </th>
             <td>{{adopter.name}}</td>
             <td>{{adopter.phone}}</td>

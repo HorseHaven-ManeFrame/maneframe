@@ -1,6 +1,7 @@
 'use strict';
 
 app.controller('EditAdopter', function($scope, $location, horseFactory, authFactory, $routeParams) {
+
   $scope.newEventTitle = 'Edit Adopter';
   $scope.submitButtonText = 'Submit Edited Event';
   let user = authFactory.getCurrentUser();
@@ -13,11 +14,12 @@ app.controller('EditAdopter', function($scope, $location, horseFactory, authFact
     state: '',
     name: '',
     city: '',
-    uid: ''
+    adopter_id: ''
   };
 
   const showEditAdopter = function() {
-    horseFactory.getSingleAdopter($routeParams.itemId).then(data => {
+    horseFactory.getSingleAdopter($routeParams.itemId)
+    .then(data => {
       $scope.adopter = data.data;
     });
   };

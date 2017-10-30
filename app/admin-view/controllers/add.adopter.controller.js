@@ -13,11 +13,17 @@ app.controller('AddAdopterController', function($scope, $location, horseFactory)
     state: '',
     name: '',
     city: '',
-    uid: ''
+    adopter_id: ''
   };
 
   $scope.submitNewAdopter = function() {
-    horseFactory.submitNewAdopter($scope.adopter).then(data => {
+    horseFactory.submitNewAdopter($scope.adopter)
+    .then(data => {
+      // console.log("RESPONSE", response.data.name);
+      let pushUgly = {
+        adopter_id: response.data.name
+    };
+    AddHorseFactory.updateHorse(response.data.name, pushUgly);
       $location.url('/admin/adopters');
     });
   };

@@ -19,7 +19,7 @@ app.controller('AddAdopterController', function($scope, $location, horseFactory)
   $scope.submitNewAdopter = function() {
     horseFactory.submitNewAdopter($scope.adopter)
     .then(data => {
-      // console.log("RESPONSE", response.data.name);
+      console.log("RESPONSE", response.data.name);
       let pushUgly = {
         adopter_id: response.data.name
     };

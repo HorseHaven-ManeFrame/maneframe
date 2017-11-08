@@ -11,6 +11,12 @@ Horse Haven of Tennessee has a deficit in serving the state and making sure that
 * Firebase
 * SASS
 
+## Screen Shots
+
+![alt text](http://www.drteresavasquez.com/wp-content/uploads/2017/06/HorseHavenss1.png "Admin Dashboard")
+![alt text](http://www.drteresavasquez.com/wp-content/uploads/2017/06/HorseHavenss2.png "All Horses View")
+![alt text](http://www.drteresavasquez.com/wp-content/uploads/2017/06/HorseView.png "Single Horse View")
+
 ## Authors
 
 * **Tyler Barnett** - *Initial work* - [Tyler's GitHub](https://github.com/tylerb33)

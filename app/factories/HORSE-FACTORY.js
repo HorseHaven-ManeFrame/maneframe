@@ -340,6 +340,7 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     submitNewCase,
     getAllHorses,
     getAllCases,
-    getSingleAdopterHorses
+    getSingleAdopterHorses,
+    submitNewAdopter
   };
 });

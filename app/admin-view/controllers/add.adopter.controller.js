@@ -15,9 +15,6 @@ app.controller('AddAdopterController', function($scope, $location, horseFactory)
     uid: ''
   };
 
-  $scope.consoleToLog = function() {
-    console.log("WORKING");
-  };
 
   $scope.submitNewAdopter = function() {
     horseFactory.submitNewAdopter($scope.adopter).then(data => {
@@ -25,8 +22,4 @@ app.controller('AddAdopterController', function($scope, $location, horseFactory)
     });
   };
 
- function consoleNow() {
-    console.log("HERERERERRER");
-  }
-  consoleNow();
 });

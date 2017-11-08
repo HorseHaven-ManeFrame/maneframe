@@ -15,9 +15,18 @@ app.controller('AddAdopterController', function($scope, $location, adminAddFacto
     uid: ''
   };
 
+  $scope.consoleToLog = function() {
+    console.log("WORKING");
+  };
+
   $scope.submitNewAdopter = function() {
     horseFactory.submitNewAdopter($scope.adopter).then(data => {
       $location.url('/admin/adopters');
     });
   };
+
+ function consoleNow() {
+    console.log("HERERERERRER");
+  }
+  consoleNow();
 });

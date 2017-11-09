@@ -5,6 +5,7 @@ lib/.sass-cache/*
 app/creds/*
 notes
 data/
+app/creds/fb.creds.js
 app/testPartial.html
 app/testStuff
 app/assets/images/profileImages/*

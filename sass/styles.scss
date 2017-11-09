@@ -249,7 +249,7 @@ body {
       padding: 15px;
       clear: both; } }
   
-      @media print
+  @media print
       {    
           .no-print, .no-print *
           {
@@ -260,4 +260,11 @@ body {
       #print-button{
         width:100px;
       }
+
+  @media only screen and (max-width: 441px) {
+  .hide-on-mobile {
+    display: none;
+  }
+
+}
   

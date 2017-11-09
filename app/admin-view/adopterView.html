@@ -18,17 +18,16 @@
             <th></th>
             <th>Name</th>
             <th>Phone Number</th>
-            <th>Type</th>
+            <th class="hide-on-mobile">Type</th>
         </tr>
     </thead>
     <tbody ng-repeat="adopter in allAdoptersData | filter:queryEvents | orderBy: 'begDate'">
         <tr>
-            <th scope="row"><a href=""><i ng-click="deleteSingleAdopter(adopter.uid)" class="fa fa-trash-o" aria-hidden="true"></i></a> | <a ng-href="#!/admin/addAdopter/{{adopter.uid}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            <th scope="row"><a href=""><i ng-click="deleteSingleAdopter(adopter.id)" class="fa fa-trash-o" aria-hidden="true"></i></a> | <a ng-href="#!/admin/addAdopter/{{adopter.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
             </th>
-            <td>{{adopter.name}}</td>
+            <td><a ng-href="#!/admin/adopterInfo/{{adopter.id}}">{{adopter.name}}</a></td>
             <td>{{adopter.phone}}</td>
-            <td>{{adopter.email}}</td>
-            <td><a ng-href="#!/admin/adopterInfo/{{adopter.id}}">More Details</a></td>
+            <td class="hide-on-mobile">{{adopter.email}}</td>
         </tr>
     </tbody>
 </table>

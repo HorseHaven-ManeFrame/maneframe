@@ -254,4 +254,8 @@ th, td, tr {
 #print-button {
   width: 100px; }
 
+@media only screen and (max-width: 441px) {
+  .hide-on-mobile {
+    display: none; } }
+
 /*# sourceMappingURL=main.css.map */

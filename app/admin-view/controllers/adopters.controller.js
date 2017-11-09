@@ -8,10 +8,12 @@ app.controller('ViewAdoptersController', function($scope, $route, $routeParams, 
     horseFactory.getAllAdopters()
     .then(data => {
       $scope.allAdoptersData = data;
+      console.log(data);
     });
   };
   
   $scope.deleteSingleAdopter = function (id) {
+
      horseFactory.deleteSingleAdopter(id)
        .then(() => {
                 $scope.showAllAdopters();

@@ -18,8 +18,8 @@
             <!-- <th><a href="" ng-click="orderByField='case'; reverseSort = !reverseSort">Case</a></th> -->
             <th><a href="" ng-click="orderByField='name'; reverseSort = !reverseSort">Name</a></th>
             <th><a href="" ng-click="orderByField='status'; reverseSort = !reverseSort">Status</a></th>
-            <th><a href="" ng-click="orderByField='county'; reverseSort = !reverseSort">County</a></th>
-            <th><a href="" ng-click="orderByField='id'; reverseSort = !reverseSort">{{date}}</a></th>
+            <th class="hide-on-mobile"><a href="" ng-click="orderByField='county'; reverseSort = !reverseSort">County</a></th>
+            <th class="hide-on-mobile"><a href="" ng-click="orderByField='id'; reverseSort = !reverseSort">{{date}}</a></th>
         </tr>
     </thead>
     <tbody>
@@ -28,8 +28,8 @@
             <!-- <th scope="row">{{horse.caseID}}</th> -->
             <td><a ng-href="#!/admin/addHorse/{{horse.id}}">{{horse.name}}</a></td>
             <td>{{horse.status}}</td>
-            <td>{{horse.county}}</td>
-            <td>{{horse.arrive_date | date}}</td>
+            <td class="hide-on-mobile">{{horse.county}}</td>
+            <td class="hide-on-mobile">{{horse.arrive_date | date}}</td>
         </tr>
     </tbody>
 </table>

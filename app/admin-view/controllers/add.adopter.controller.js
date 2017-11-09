@@ -15,9 +15,11 @@ app.controller('AddAdopterController', function($scope, $location, horseFactory)
     uid: ''
   };
 
+
   $scope.submitNewAdopter = function() {
     horseFactory.submitNewAdopter($scope.adopter).then(data => {
       $location.url('/admin/adopters');
     });
   };
+
 });

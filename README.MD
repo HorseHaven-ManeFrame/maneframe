@@ -26,3 +26,4 @@ Horse Haven of Tennessee has a deficit in serving the state and making sure that
 ## Acknowledgments
 
 Shout out to LBMC for the wonderful opportunity to help a local charity!
+Horseshoe by artworkbean from the Noun Project

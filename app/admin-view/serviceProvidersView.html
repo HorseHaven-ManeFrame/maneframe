@@ -17,18 +17,17 @@
         <tr>
             <th></th>
             <th>Name</th>
-            <th>Phone Number</th>
+            <th class="hide-on-mobile">Phone Number</th>
             <th>Type</th>
         </tr>
     </thead>
     <tbody ng-repeat="provider in allServiceProviderData | filter:queryEvents | orderBy: 'begDate'">
         <tr>
-            <th scope="row"><a href=""><i ng-click="deleteSingleProvider(provider.id)" class="fa fa-trash-o" aria-hidden="true"></i></a> | <a ng-href="#!/admin/addServiceProvider/{{provider.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            <th class="" scope="row"><a href=""><i ng-click="deleteSingleProvider(provider.id)" class="fa fa-trash-o" aria-hidden="true"></i></a> | <a ng-href="#!/admin/addServiceProvider/{{provider.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
             </th>
-            <td>{{provider.name}}</td>
-            <td>{{provider.phone}}</td>
+            <td><a ng-href="#!/admin/addServiceProvider/{{provider.id}}">{{provider.name}}</a></td>
+            <td class="hide-on-mobile">{{provider.phone}}</td>
             <td>{{provider.provider_type}}</td>
-            <td><a ng-href="#!/admin/addServiceProvider/{{provider.id}}">More Details</a></td>
         </tr>
     </tbody>
 </table>

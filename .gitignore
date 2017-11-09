@@ -2,6 +2,7 @@
 lib/node_modules
 notes
 data/
+app/creds/fb.creds.js
 app/testPartial.html
 app/testStuff
 app/assets/images/profileImages/*

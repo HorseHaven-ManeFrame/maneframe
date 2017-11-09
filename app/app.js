@@ -45,6 +45,11 @@ app.config($routeProvider => {
       controller: 'EditHorse',
       resolve: { isAuth }
     })
+    .when('/admin/adopters', {
+      templateUrl: 'app/admin-view/adopterView.html',
+      controller: 'ViewAdoptersController',
+      resolve: { isAuth }
+    })
     .when('/admin/addAdopter', {
       templateUrl: 'app/admin-view/forms/addAdopterForm.html',
       controller: 'AddAdopterController',
@@ -53,6 +58,11 @@ app.config($routeProvider => {
     .when('/admin/addAdopter/:itemId', {
       templateUrl: 'app/admin-view/forms/addAdopterForm.html',
       controller: 'EditAdopter',
+      resolve: { isAuth }
+    })
+    .when('/admin/adopterInfo/:itemId', {
+      templateUrl: 'app/admin-view/singleAdopterView.html',
+      controller: 'ViewAdoptersController',
       resolve: { isAuth }
     })
     .when('/admin/addServiceProvider', {
@@ -93,16 +103,6 @@ app.config($routeProvider => {
     .when('/admin/addCase', {
       templateUrl: 'app/admin-view/forms/addCase.html',
       controller: 'addCaseController',
-      resolve: { isAuth }
-    })
-    .when('/admin/adopters', {
-      templateUrl: 'app/admin-view/adopterView.html',
-      controller: 'ViewAdoptersController',
-      resolve: { isAuth }
-    })
-    .when('/admin/adopterInfo/:itemId', {
-      templateUrl: 'app/admin-view/singleAdopterView.html',
-      controller: 'ViewAdoptersController',
       resolve: { isAuth }
     })
     .when('/admin/eligibility', {

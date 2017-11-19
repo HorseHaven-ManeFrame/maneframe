@@ -36,7 +36,7 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     let horsesArray = [];
 
     return $q((resolve, reject) => {
-      $http.get(`https://horse-haven-tn.firebaseio.com/horse.json`).then(results => {
+      $http.get(`${FBCreds.databaseURL}/horse.json`).then(results => {
         console.log('all horses data:', results.data);
 
         let horseCollection = results.data;
@@ -59,7 +59,7 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     let servicesArray = [];
 
     return $q((resolve, reject) => {
-      $http.get(`https://horse-haven-tn.firebaseio.com/service_provider.json`).then(results => {
+      $http.get(`${FBCreds.databaseURL}/service_provider.json`).then(results => {
         console.log('all horses data:', results.data);
 
         let serviceCollection = results.data;
@@ -82,7 +82,7 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     let adoptersArray = [];
 
     return $q((resolve, reject) => {
-      $http.get(`https://horse-haven-tn.firebaseio.com/adopter.json`).then(results => {
+      $http.get(`${FBCreds.databaseURL}/adopter.json`).then(results => {
         console.log('all adopter data:', results.data);
 
         let adopterCollection = results.data;
@@ -215,7 +215,7 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
    */
   const getSingleProvider = function(providerFBID) {
     return $q((resolve, reject) => {
-      $http.get(`https://horse-haven-tn.firebaseio.com/service_provider/${providerFBID}.json`).then(
+      $http.get(`${FBCreds.databaseURL}/service_provider/${providerFBID}.json`).then(
         data => {
           resolve(data);
         },

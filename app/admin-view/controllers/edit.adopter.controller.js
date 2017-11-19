@@ -27,6 +27,9 @@ app.controller('EditAdopter', function($scope, $location, horseFactory, authFact
 
   $scope.submitNewAdopter = function() {
     console.log('Update Adopter: ', $scope.adopter);
-    horseFactory.updateSingleAdopter($routeParams.itemId, $scope.adopter).then(data => {});
+    horseFactory.updateSingleAdopter($routeParams.itemId, $scope.adopter)
+      .then((response) => {
+          $location.url("/admin/adopters");
+      });
   };
 });

@@ -1,11 +1,11 @@
 "use strict";
 
 app.constant("FBCreds", {
-    apiKey: "AIzaSyDcNqHEpCY3B_YAsGkssNrQ3oj1jjKuSx4",
-    authDomain: "maneframe-prod.firebaseapp.com",
-    databaseURL: "https://maneframe-prod.firebaseio.com",
-    projectId: "maneframe-prod",
-    storageBucket: "",
-    messagingSenderId: "1044719678745"
+    apiKey: "AIzaSyCnThYA2kFBTvjXgAhopBI_1epnXWPB2Mk",
+        authDomain: "horse-haven-tn.firebaseapp.com",
+        databaseURL: "https://horse-haven-tn.firebaseio.com",
+        projectId: "horse-haven-tn",
+        storageBucket: "horse-haven-tn.appspot.com",
+        messagingSenderId: "653489625248"
 });
 

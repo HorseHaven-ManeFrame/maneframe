@@ -92,7 +92,7 @@ app.config($routeProvider => {
     })
     .when('/cases', {
       templateUrl: 'app/admin-view/allCasesView.html',
-      controller: 'allHorsesView',
+      controller: 'CasesController',
       resolve: { isAuth }
     })
     .when('/admin/addCase/:itemId', {

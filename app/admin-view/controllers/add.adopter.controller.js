@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('AddAdopterController', function($scope, $location, horseFactory) {
+app.controller('AddAdopterController', function($scope, $location, horseFactory, AddHorseFactory) {
 
   $scope.newEventTitle = 'Add an Adopter';
   $scope.submitButtonText = 'Submit';
@@ -19,7 +19,7 @@ app.controller('AddAdopterController', function($scope, $location, horseFactory)
 
   $scope.submitNewAdopter = function() {
     horseFactory.submitNewAdopter($scope.adopter)
-    .then(data => {
+    .then((response) => {
       console.log("RESPONSE", response.data.name);
       let pushUgly = {
         adopter_id: response.data.name

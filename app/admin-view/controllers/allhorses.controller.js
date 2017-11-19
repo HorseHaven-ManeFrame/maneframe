@@ -3,6 +3,7 @@
 app.controller('allHorsesView', function($scope, horseFactory, FBCreds, authFactory) {
   $scope.title = "All Horses";
   $scope.date = "Arrival Date";
+  
   $scope.showAllHorses = () => {
     horseFactory.getAllHorses().then(data => {
       $scope.allHorsesData = data;
@@ -56,7 +57,16 @@ $scope.showAllEligibleHorses();
     });
   };
 
+/*******************************/
+  $scope.getServiceProviderCount = () => {
+    horseFactory.getAllServiceProviders()
+      .then(data => {
+        $scope.serviceProviderAmount = data.length;
+      });
+  };
+
   $scope.showAllHorses();
   $scope.showAllCases();
+  $scope.getServiceProviderCount();
 
 });

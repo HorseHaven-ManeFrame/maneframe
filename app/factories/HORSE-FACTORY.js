@@ -194,6 +194,19 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     });
   };
 
+  const deleteSingleCase = function(caseFBID) {
+    return $q((resolve, reject) => {
+      $http
+        .delete(`${FBCreds.databaseURL}/cases/${caseFBID}.json`)
+        .then(data => {
+          resolve(data);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  };
+
   /**
    * Gets the single provider.
    *
@@ -342,6 +355,7 @@ app.factory('horseFactory', function($q, $http, FBCreds) {
     getAllCases,
     getSingleAdopterHorses,
     submitNewAdopter,
+    deleteSingleCase,
     submitUpdatedCase
   };
 });

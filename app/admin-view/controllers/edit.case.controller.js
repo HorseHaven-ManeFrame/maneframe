@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('editCaseController', function($scope, $routeParams, horseFactory, FBCreds, authFactory) {
+app.controller('editCaseController', function($scope, $routeParams, horseFactory, FBCreds, authFactory, $window, $location, $route) {
   $scope.newCaseTitle = 'Case Details';
   $scope.submitButtonText = 'Submit Edited Case';
 
@@ -16,12 +16,27 @@ app.controller('editCaseController', function($scope, $routeParams, horseFactory
     });
   };
 
-  $scope.submitUpdatedCase = function() {
+  $scope.submitNewCase = function() {
     console.log('Update Adopter: ', $scope.case);
-    horseFactory.submitUpdatedCase($routeParams.itemId, $scope.case).then(data => {
-      console.log('Just Updated Case: ', data.data);
-    });
+    horseFactory.submitUpdatedCase($routeParams.itemId, $scope.case)
+      .then((response) => {
+          $location.url("/cases");
+      });
   };
+
+
+
+    //   $scope.submitNewHorse = function () {
+    //     AddHorseFactory.addNewHorse($scope.addHorse)
+    //         .then((response) => {
+    //             // console.log("RESPONSE", response.data.name);
+    //             let pushUgly = {
+    //                 horse_id: response.data.name
+    //             };
+    //             AddHorseFactory.updateHorse(pushUgly, response.data.name);
+    //             $location.url("/admin/horses");
+    //         });
+    // };
 
   $scope.showSingleCase();
 });

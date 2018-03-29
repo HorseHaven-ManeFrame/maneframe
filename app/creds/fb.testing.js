@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 
 // app.constant("FBCreds", {
 //     apiKey: "AIzaSyCnThYA2kFBTvjXgAhopBI_1epnXWPB2Mk",
